@@ -64,7 +64,8 @@ export function ServicesPage() {
         ]}
         title="Servicios"
         text="Servicios de barbería con la calidad, tradición y atención al detalle que nos distingue. Elige tu servicio y vive la experiencia Pompilio's."
-        imageAlt="Servicio de barbería en Pompilio's"
+        image={images.corte}
+        imageAlt="Corte de cabello en proceso en Pompilio's"
       />
 
       <section className="section services-section">

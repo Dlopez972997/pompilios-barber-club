@@ -28,7 +28,8 @@ export function GalleryPage() {
         ]}
         title="Galería"
         text="Una mirada a la experiencia, el detalle y el ambiente de Pompilio's Barber Club."
-        imageAlt="Ambiente de Pompilio's Barber Club"
+        image={images.pedicure}
+        imageAlt="Cuidado de manos y pies en Pompilio's"
       />
       <section className="section">
         <div className="container gallery-grid">

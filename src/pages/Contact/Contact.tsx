@@ -1,4 +1,5 @@
 import { useEffect, useState, type FormEvent } from "react";
+import { images } from "../../assets/images";
 import { branch } from "../../data/site";
 import { Button } from "../../components/Button/Button";
 import { IconClock, IconPhone, IconPin, IconWhatsapp } from "../../components/Icons";
@@ -26,7 +27,8 @@ export function ContactPage() {
         ]}
         title="Contacto"
         text="Estamos en la Calle 90 # 14-45, Bogotá, para atenderte con la misma calidad y detalle de siempre."
-        imageAlt="Pompilio's Barber Club"
+        image={images.towels}
+        imageAlt="Interior de Pompilio's Barber Club"
       />
       <section className="section">
         <div className="container contact-grid">

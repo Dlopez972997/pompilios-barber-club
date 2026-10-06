@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import { images } from "../../assets/images";
 import { services, getService } from "../../data/services";
 import { branch } from "../../data/site";
 import { getMember, team } from "../../data/team";
@@ -109,7 +110,9 @@ export function BookingPage() {
         ]}
         title="Reserva tu cita"
         text="Agenda tu servicio en pocos pasos y vive la experiencia Pompilio's con la misma calidad y detalle."
-        imageAlt="Interior de Pompilio's Barber Club"
+        image={images.corteBarba}
+        imageAlt="Barbero realizando un corte y barba en Pompilio's"
+        variant="banner"
       />
 
       <section className="section booking-section">

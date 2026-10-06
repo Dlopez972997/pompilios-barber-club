@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
-import { images } from "../../assets/images";
 
 type Crumb = { label: string; to?: string };
 
@@ -8,12 +7,14 @@ type Props = {
   crumbs: Crumb[];
   title: ReactNode;
   text: string;
+  image: string;
   imageAlt: string;
+  variant?: "split" | "banner";
 };
 
-export function PageHero({ crumbs, title, text, imageAlt }: Props) {
+export function PageHero({ crumbs, title, text, image, imageAlt, variant = "split" }: Props) {
   return (
-    <section className="page-hero">
+    <section className={`page-hero${variant === "banner" ? " is-banner" : ""}`}>
       <div className="container page-hero-grid">
         <div>
           <nav className="crumbs" aria-label="Ruta de navegación">
@@ -28,7 +29,7 @@ export function PageHero({ crumbs, title, text, imageAlt }: Props) {
           <p>{text}</p>
         </div>
         <div className="page-hero-media">
-          <img src={images.hero} alt={imageAlt} />
+          <img src={image} alt={imageAlt} />
         </div>
       </div>
     </section>
