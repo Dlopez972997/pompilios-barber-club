@@ -17,8 +17,6 @@ export const reviewStats = {
 
 export const socials = [
   { id: "instagram", label: "Instagram", href: "https://www.instagram.com/pompiliosbarberclub/" },
-  { id: "facebook", label: "Facebook", href: "https://www.facebook.com/" },
-  { id: "tiktok", label: "TikTok", href: "https://www.tiktok.com/" },
 ];
 
 export const timeSlots = [

@@ -1,19 +1,21 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { featuredMember, team } from "../../data/team";
-import type { TeamGroup, TeamMember } from "../../data/types";
+import type { TeamMember } from "../../data/types";
 import { Button } from "../../components/Button/Button";
 import { IconDiamond, IconHeart, IconSearch, IconStar, IconTrophy, IconUsers } from "../../components/Icons";
 import { Modal } from "../../components/Modal/Modal";
 import { Rating } from "../../components/Rating/Rating";
 import { TeamCard } from "../../components/TeamCard/TeamCard";
 
-const filters: Array<{ id: "all" | TeamGroup; label: string }> = [
-  { id: "all", label: "Todos" },
-  { id: "barberos", label: "Barberos" },
-  { id: "barba", label: "Especialistas en barba" },
-  { id: "manicuristas", label: "Manicuristas" },
-];
+const filters = (
+  [
+    { id: "all", label: "Todos" },
+    { id: "barberos", label: "Barberos" },
+    { id: "manicuristas", label: "Manicuristas" },
+    { id: "integrales", label: "Estilistas integrales" },
+  ] as const
+).filter((item) => item.id === "all" || team.some((member) => member.group === item.id));
 
 function normalize(value: string) {
   return value
@@ -63,7 +65,7 @@ export function TeamPage() {
                   <IconUsers />
                 </span>
                 <div>
-                  <strong>+6</strong>
+                  <strong>{team.length}</strong>
                   <span>Especialistas</span>
                 </div>
               </article>
@@ -81,8 +83,8 @@ export function TeamPage() {
                   <IconTrophy />
                 </span>
                 <div>
-                  <strong>Años de experiencia</strong>
-                  <span>Más de 8 años</span>
+                  <strong>336</strong>
+                  <span>Reseñas</span>
                 </div>
               </article>
             </div>
@@ -96,13 +98,17 @@ export function TeamPage() {
               <p className="eyebrow">{featuredMember.role}</p>
               <h2>{featuredMember.name}</h2>
               <Rating value={featuredMember.rating} count={featuredMember.reviews} />
-              <p>{featuredMember.bio}</p>
-              <p className="featured-label">Especialidades:</p>
-              <ul className="chips">
-                {featuredMember.specialties.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
+              {featuredMember.bio ? <p>{featuredMember.bio}</p> : null}
+              {featuredMember.specialties && featuredMember.specialties.length > 0 ? (
+                <>
+                  <p className="featured-label">Especialidades:</p>
+                  <ul className="chips">
+                    {featuredMember.specialties.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </>
+              ) : null}
               <Button to={`/reservas?professional=${featuredMember.id}`} arrow>
                 Reservar con {featuredMember.firstName}
               </Button>
@@ -161,8 +167,8 @@ export function TeamPage() {
             <span className="metric-icon">
               <IconDiamond />
             </span>
-            <h3>Profesionales certificados</h3>
-            <p>Formación constante y las últimas tendencias.</p>
+            <h3>Equipo de la casa</h3>
+            <p>Quienes atienden en Pompilio's Barber Club.</p>
           </article>
           <article>
             <span className="metric-icon">
@@ -176,7 +182,7 @@ export function TeamPage() {
               <IconStar />
             </span>
             <h3>Experiencia que se nota</h3>
-            <p>Más de 8 años realzando tu mejor versión.</p>
+            <p>El detalle de cada cita, en la silla.</p>
           </article>
         </div>
       </section>
@@ -188,12 +194,14 @@ export function TeamPage() {
             <div>
               <p className="eyebrow">{profile.role}</p>
               <Rating value={profile.rating} count={profile.reviews} />
-              <p>{profile.bio}</p>
-              <ul className="chips">
-                {profile.specialties.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
+              {profile.bio ? <p>{profile.bio}</p> : null}
+              {profile.specialties && profile.specialties.length > 0 ? (
+                <ul className="chips">
+                  {profile.specialties.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              ) : null}
               <Button to={`/reservas?professional=${profile.id}`} arrow>
                 Reservar con {profile.firstName}
               </Button>

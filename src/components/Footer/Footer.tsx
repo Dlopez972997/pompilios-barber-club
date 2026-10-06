@@ -1,12 +1,10 @@
 import { Link } from "react-router-dom";
 import { branch, navItems, socials } from "../../data/site";
-import { IconClock, IconFacebook, IconInstagram, IconPhone, IconPin, IconTiktok, IconWhatsapp } from "../Icons";
+import { IconClock, IconInstagram, IconPhone, IconPin, IconWhatsapp } from "../Icons";
 import { Logo } from "../Logo/Logo";
 
 const socialIcon = {
   instagram: IconInstagram,
-  facebook: IconFacebook,
-  tiktok: IconTiktok,
 };
 
 export function Footer() {
@@ -38,7 +36,7 @@ export function Footer() {
             {socials.map((item) => {
               const Icon = socialIcon[item.id as keyof typeof socialIcon];
               return (
-                <a key={item.id} href={item.href} target="_blank" rel="noreferrer" aria-label={item.label}>
+                <a key={item.id} href={item.href} target="_blank" rel="noopener noreferrer" aria-label={item.label}>
                   <Icon />
                 </a>
               );

@@ -1,9 +1,10 @@
 type Props = {
-  value: number;
+  value?: number;
   count?: number;
 };
 
 export function Rating({ value, count }: Props) {
+  if (value == null) return null;
   const width = `${Math.max(0, Math.min(5, value)) / 5 * 100}%`;
   const label = count != null ? `${value.toFixed(1)} de 5, ${count} reseñas` : `${value.toFixed(1)} de 5`;
 

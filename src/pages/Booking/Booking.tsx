@@ -3,7 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import { images } from "../../assets/images";
 import { services, getService } from "../../data/services";
 import { branch } from "../../data/site";
-import { getMember, team } from "../../data/team";
+import { getMember, primaryProfessionals, team } from "../../data/team";
 import type { Service, TeamMember } from "../../data/types";
 import { BookingStepper, type StepState } from "../../components/BookingStepper/BookingStepper";
 import { BookingSummary } from "../../components/BookingSummary/BookingSummary";
@@ -16,7 +16,7 @@ import { Rating } from "../../components/Rating/Rating";
 import { TimeSlots } from "../../components/TimeSlots/TimeSlots";
 import { defaultBookingDate, formatLongDate, formatPrice, parseSlot, toIcsStamp } from "../../utils/dates";
 
-const primaryPros = ["fernando-lugo", "nicolas-zamudio", "leonel-gonzalez"];
+const primaryPros = primaryProfessionals;
 
 function unavailableSlots(date: Date | null) {
   if (!date) return [];
@@ -34,7 +34,7 @@ export function BookingPage() {
 
   const [service, setService] = useState<Service>(getService(serviceParam) ?? getService("corte-barba") ?? services[0]);
   const [professional, setProfessional] = useState<TeamMember | null>(
-    getMember(professionalParam) ?? (hasQuery ? null : (getMember("fernando-lugo") ?? null)),
+    getMember(professionalParam) ?? (hasQuery ? null : (team[0] ?? null)),
   );
   const [month, setMonth] = useState(() => new Date(initialDate.getFullYear(), initialDate.getMonth(), 1));
   const [date, setDate] = useState<Date | null>(hasQuery ? null : initialDate);

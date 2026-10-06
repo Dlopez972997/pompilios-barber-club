@@ -13,7 +13,7 @@ export type Service = {
   featured?: boolean;
 };
 
-export type TeamGroup = "barberos" | "barba" | "manicuristas";
+export type TeamGroup = "barberos" | "manicuristas" | "integrales";
 
 export type TeamMember = {
   id: string;
@@ -21,10 +21,10 @@ export type TeamMember = {
   firstName: string;
   role: string;
   bookingLabel: string;
-  rating: number;
+  rating?: number;
   reviews?: number;
-  specialties: string[];
-  bio: string;
+  specialties?: string[];
+  bio?: string;
   group: TeamGroup;
   image: string;
   featured?: boolean;
