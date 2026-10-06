@@ -1,18 +1,14 @@
 import { useEffect, useMemo, useState } from "react";
-import { services } from "../../data/services";
-import type { ServiceCategory } from "../../data/types";
+import { serviceCategories, services } from "../../data/services";
 import { images } from "../../assets/images";
 import { Button } from "../../components/Button/Button";
 import { IconCalendar, IconChevron, IconClock, IconDiamond, IconSearch } from "../../components/Icons";
 import { PageHero } from "../../components/PageHero/PageHero";
 import { ServiceCard } from "../../components/ServiceCard/ServiceCard";
 
-const categories: Array<{ id: "all" | ServiceCategory; label: string }> = [
-  { id: "all", label: "Todos" },
-  { id: "corte", label: "Corte" },
-  { id: "barba", label: "Barba" },
-  { id: "unas", label: "Uñas" },
-];
+const pageSize = 12;
+
+const categories = [{ id: "all" as const, label: "Todos" }, ...serviceCategories];
 
 const reserveSteps = [
   { title: "Elige servicio", text: "Selecciona el servicio que deseas." },
@@ -32,6 +28,7 @@ export function ServicesPage() {
   const [category, setCategory] = useState<(typeof categories)[number]["id"]>("all");
   const [duration, setDuration] = useState("all");
   const [price, setPrice] = useState("all");
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     document.title = "Servicios | Pompilio's Barber Club";
@@ -42,7 +39,7 @@ export function ServicesPage() {
     return services.filter((service) => {
       const text = normalize(`${service.name} ${service.description}`);
       if (q && !text.includes(q)) return false;
-      if (category !== "all" && !service.categories.includes(category)) return false;
+      if (category !== "all" && service.category !== category) return false;
       if (duration === "short" && service.durationMax > 30) return false;
       if (duration === "medium" && !(service.durationMin >= 30 && service.durationMin < 45 && service.durationMax <= 50)) {
         return false;
@@ -53,6 +50,14 @@ export function ServicesPage() {
       if (price === "high" && service.price <= 50000) return false;
       return true;
     });
+  }, [query, category, duration, price]);
+
+  const pageCount = Math.max(1, Math.ceil(visible.length / pageSize));
+  const currentPage = Math.min(page, pageCount);
+  const pageItems = visible.slice((currentPage - 1) * pageSize, currentPage * pageSize);
+
+  useEffect(() => {
+    setPage(1);
   }, [query, category, duration, price]);
 
   return (
@@ -77,7 +82,7 @@ export function ServicesPage() {
               <input
                 type="search"
                 value={query}
-                placeholder="Buscar un servicio..."
+                placeholder="Buscar servicio..."
                 onChange={(event) => setQuery(event.target.value)}
               />
             </label>
@@ -123,27 +128,59 @@ export function ServicesPage() {
             </label>
           </div>
 
+          <p className="catalog-count">
+            {visible.length === services.length
+              ? `${services.length} servicios`
+              : `${visible.length} de ${services.length} servicios`}
+          </p>
+
           <div className="services-layout">
-            <div className="card-grid card-grid-3">
-              {visible.map((service) => (
-                <ServiceCard key={service.id} service={service} />
-              ))}
-              {visible.length === 0 ? (
-                <div className="empty">
-                  <p>No hay servicios con esos filtros.</p>
-                  <button
-                    type="button"
-                    className="text-btn"
-                    onClick={() => {
-                      setQuery("");
-                      setCategory("all");
-                      setDuration("all");
-                      setPrice("all");
-                    }}
-                  >
-                    Limpiar filtros
+            <div>
+              <div className="card-grid card-grid-3">
+                {pageItems.map((service) => (
+                  <ServiceCard key={service.id} service={service} />
+                ))}
+                {visible.length === 0 ? (
+                  <div className="empty">
+                    <p>No hay servicios con esos filtros.</p>
+                    <button
+                      type="button"
+                      className="text-btn"
+                      onClick={() => {
+                        setQuery("");
+                        setCategory("all");
+                        setDuration("all");
+                        setPrice("all");
+                      }}
+                    >
+                      Limpiar filtros
+                    </button>
+                  </div>
+                ) : null}
+              </div>
+              {pageCount > 1 ? (
+                <nav className="pager" aria-label="Páginas de servicios">
+                  <button type="button" disabled={currentPage === 1} onClick={() => setPage(currentPage - 1)}>
+                    Anterior
                   </button>
-                </div>
+                  {Array.from({ length: pageCount }, (_, index) => {
+                    const number = index + 1;
+                    return (
+                      <button
+                        key={number}
+                        type="button"
+                        aria-current={number === currentPage ? "page" : undefined}
+                        className={number === currentPage ? "is-active" : ""}
+                        onClick={() => setPage(number)}
+                      >
+                        {number}
+                      </button>
+                    );
+                  })}
+                  <button type="button" disabled={currentPage === pageCount} onClick={() => setPage(currentPage + 1)}>
+                    Siguiente
+                  </button>
+                </nav>
               ) : null}
             </div>
             <aside className="reserve-card">

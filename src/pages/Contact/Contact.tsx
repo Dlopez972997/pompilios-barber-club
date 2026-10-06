@@ -26,7 +26,7 @@ export function ContactPage() {
           { label: "Contacto" },
         ]}
         title="Contacto"
-        text="Estamos en la Calle 90 # 14-45, Bogotá, para atenderte con la misma calidad y detalle de siempre."
+        text={`Estamos en la ${branch.street}, ${branch.city}, ${branch.country}, para atenderte con la misma calidad y detalle de siempre.`}
         image={images.towels}
         imageAlt="Interior de Pompilio's Barber Club"
       />
@@ -36,14 +36,18 @@ export function ContactPage() {
             <h2>Visítanos</h2>
             <p>
               <IconPin />
-              <span>{branch.address}</span>
+              <span>
+                {branch.street}
+                <br />
+                {branch.city}, {branch.country}
+              </span>
             </p>
             <p>
               <IconClock />
               <span>
                 {branch.days}
                 <small>
-                  {branch.hours}. {branch.weekend}
+                  {branch.hours} · {branch.weekend}
                 </small>
               </span>
             </p>

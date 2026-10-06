@@ -15,7 +15,11 @@ export function Footer() {
         <div className="footer-contact">
           <p>
             <IconPin />
-            <span>{branch.address}</span>
+            <span>
+              {branch.street}
+              <br />
+              {branch.city}, {branch.country}
+            </span>
           </p>
           <p>
             <IconClock />

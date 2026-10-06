@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { images } from "../../assets/images";
-import { services, getService } from "../../data/services";
+import { services, getService, serviceCategories } from "../../data/services";
 import { branch } from "../../data/site";
 import { getMember, primaryProfessionals, team } from "../../data/team";
 import type { Service, TeamMember } from "../../data/types";
@@ -18,6 +18,10 @@ import { defaultBookingDate, formatLongDate, formatPrice, parseSlot, toIcsStamp 
 
 const primaryPros = primaryProfessionals;
 
+function normalize(value: string) {
+  return value.normalize("NFD").replace(/\p{Diacritic}/gu, "").toLowerCase();
+}
+
 function unavailableSlots(date: Date | null) {
   if (!date) return [];
   const day = date.getDate();
@@ -32,7 +36,7 @@ export function BookingPage() {
   const hasQuery = Boolean(serviceParam || professionalParam);
   const initialDate = useMemo(() => defaultBookingDate(), []);
 
-  const [service, setService] = useState<Service>(getService(serviceParam) ?? getService("corte-barba") ?? services[0]);
+  const [service, setService] = useState<Service>(getService(serviceParam) ?? getService("corte-y-barba") ?? services[0]);
   const [professional, setProfessional] = useState<TeamMember | null>(
     getMember(professionalParam) ?? (hasQuery ? null : (team[0] ?? null)),
   );
@@ -41,6 +45,8 @@ export function BookingPage() {
   const [time, setTime] = useState<string | null>(hasQuery ? null : "1:00 p.m.");
   const [showAll, setShowAll] = useState(() => Boolean(professionalParam && !primaryPros.includes(professionalParam)));
   const [pickerOpen, setPickerOpen] = useState(false);
+  const [pickerQuery, setPickerQuery] = useState("");
+  const [pickerCategory, setPickerCategory] = useState<"all" | Service["category"]>("all");
   const [confirmed, setConfirmed] = useState(false);
 
   useEffect(() => {
@@ -59,6 +65,14 @@ export function BookingPage() {
 
   const disabledSlots = unavailableSlots(date);
   const visiblePros = showAll ? team : team.filter((member) => primaryPros.includes(member.id));
+  const pickerServices = useMemo(() => {
+    const q = normalize(pickerQuery.trim());
+    return services.filter((item) => {
+      if (pickerCategory !== "all" && item.category !== pickerCategory) return false;
+      if (q && !normalize(`${item.name} ${item.description}`).includes(q)) return false;
+      return true;
+    });
+  }, [pickerQuery, pickerCategory]);
   const ready = Boolean(service && professional && date && time && !disabledSlots.includes(time ?? ""));
 
   const states: StepState[] = [
@@ -87,7 +101,7 @@ export function BookingPage() {
       `DTSTART:${toIcsStamp(start)}`,
       `DTEND:${toIcsStamp(end)}`,
       `SUMMARY:Cita en Pompilio's - ${service.name}`,
-      `LOCATION:${branch.address}`,
+      `LOCATION:${branch.street}, ${branch.city}, ${branch.country}`,
       `DESCRIPTION:Profesional: ${professional.name}`,
       "END:VEVENT",
       "END:VCALENDAR",
@@ -230,8 +244,40 @@ export function BookingPage() {
       </section>
 
       <Modal open={pickerOpen} title="Elige un servicio" onClose={() => setPickerOpen(false)} wide>
+        <div className="picker-tools">
+          <label className="search">
+            <span className="sr-only">Buscar servicio</span>
+            <input
+              type="search"
+              value={pickerQuery}
+              placeholder="Buscar servicio..."
+              onChange={(event) => setPickerQuery(event.target.value)}
+            />
+          </label>
+          <div className="pills" role="tablist" aria-label="Categorías de servicios">
+            <button
+              type="button"
+              className={`pill${pickerCategory === "all" ? " is-active" : ""}`}
+              aria-selected={pickerCategory === "all"}
+              onClick={() => setPickerCategory("all")}
+            >
+              Todos
+            </button>
+            {serviceCategories.map((item) => (
+              <button
+                key={item.id}
+                type="button"
+                className={`pill${pickerCategory === item.id ? " is-active" : ""}`}
+                aria-selected={pickerCategory === item.id}
+                onClick={() => setPickerCategory(item.id)}
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
+        </div>
         <div className="picker-grid">
-          {services.map((item) => (
+          {pickerServices.map((item) => (
             <button
               key={item.id}
               type="button"
@@ -246,12 +292,15 @@ export function BookingPage() {
               <span>
                 <strong>{item.name}</strong>
                 <small>
-                  {item.durationLabel} · {formatPrice(item.price)}
+                  {item.durationLabel ? `${item.durationLabel} · ` : ""}
+                  {item.priceFrom ? `${item.priceLabel} ` : ""}
+                  {formatPrice(item.price)}
                 </small>
               </span>
             </button>
           ))}
         </div>
+        {pickerServices.length === 0 ? <p className="empty">No hay servicios con esa búsqueda.</p> : null}
       </Modal>
 
       <Modal open={confirmed && ready} title="Tu cita ha sido reservada" onClose={() => setConfirmed(false)}>
@@ -280,7 +329,11 @@ export function BookingPage() {
               </li>
               <li>
                 <span>Ubicación</span>
-                <strong>{branch.address}</strong>
+                <strong>
+                  {branch.street}
+                  <br />
+                  {branch.city}
+                </strong>
               </li>
             </ul>
             <div className="confirm-actions">

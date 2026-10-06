@@ -1,15 +1,31 @@
-export type ServiceCategory = "corte" | "barba" | "unas";
+export type ServiceCategory =
+  | "barberia"
+  | "color"
+  | "combos"
+  | "depilacion"
+  | "ninos"
+  | "maquillaje"
+  | "mujer"
+  | "pestanas"
+  | "spa"
+  | "tratamientos"
+  | "unas"
+  | "otros";
 
 export type Service = {
   id: string;
+  slug: string;
   name: string;
   description: string;
+  category: ServiceCategory;
   durationLabel: string;
   durationMin: number;
   durationMax: number;
   price: number;
-  categories: ServiceCategory[];
+  priceFrom?: boolean;
+  priceLabel?: string;
   image: string;
+  popular?: boolean;
   featured?: boolean;
 };
 

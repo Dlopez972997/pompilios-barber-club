@@ -17,11 +17,18 @@ export function ServiceCard({ service }: Props) {
         <h3>{service.name}</h3>
         <p>{service.description}</p>
         <div className="service-meta">
-          <span>
-            <IconClock size={16} />
-            {service.durationLabel}
-          </span>
-          <strong>{formatPrice(service.price)}</strong>
+          {service.durationLabel ? (
+            <span>
+              <IconClock size={16} />
+              {service.durationLabel}
+            </span>
+          ) : (
+            <span />
+          )}
+          <strong>
+            {service.priceFrom ? <small>{service.priceLabel}</small> : null}
+            {formatPrice(service.price)}
+          </strong>
         </div>
         <Button variant="outline" full arrow to={`/reservas?service=${service.id}`}>
           Reservar cita

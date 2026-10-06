@@ -836,7 +836,11 @@ h1,
 }
 
 .service-body p {
-  min-height: 66px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 44px;
   margin: 8px 0 14px;
   color: var(--text-secondary);
   font-size: 14.5px;
@@ -850,6 +854,53 @@ h1,
   margin-bottom: 14px;
   color: var(--text-secondary);
   font-size: 14px;
+}
+
+.service-meta strong small {
+  display: block;
+  font-size: 11px;
+  font-weight: 650;
+  color: var(--text-secondary);
+}
+
+.catalog-count {
+  margin: 0 0 14px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.pager {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.pager button {
+  min-width: 40px;
+  min-height: 40px;
+  padding: 0 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #fff;
+  font-weight: 700;
+}
+
+.pager button.is-active {
+  border-color: var(--brand-purple);
+  background: var(--brand-purple);
+  color: #fff;
+}
+
+.pager button:disabled {
+  opacity: 0.45;
+}
+
+.picker-tools {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 14px;
 }
 
 .service-meta span,
@@ -1816,6 +1867,8 @@ h1,
 .picker-grid {
   grid-template-columns: 1fr 1fr;
   gap: 10px;
+  max-height: min(52vh, 460px);
+  overflow: auto;
 }
 
 .picker-card {

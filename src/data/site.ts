@@ -1,5 +1,8 @@
 export const branch = {
-  address: "Calle 90 # 14-45, Bogotá",
+  street: "Calle 90 # 14 - 45",
+  city: "Bogotá",
+  country: "Colombia",
+  address: "Calle 90 # 14 - 45, Bogotá",
   days: "Lunes a viernes",
   hours: "9:00 a.m. - 7:00 p.m.",
   weekend: "Sábado 9:00 a.m. - 6:00 p.m. · Domingo 10:00 a.m. - 3:00 p.m.",

@@ -28,7 +28,7 @@ const steps = [
 
 export function HomePage() {
   useEffect(() => {
-    document.title = "Pompilio's Barber Club";
+    document.title = "Pompilio’s Barber Club | Barbería en Bogotá";
   }, []);
 
   return (
