@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { featuredServices } from "../../data/services";
 import { reviews } from "../../data/reviews";
 import { branch, reviewStats } from "../../data/site";
-import { images } from "../../assets/images";
+import heroPhoto from "../../assets/home/pompilios-hero.jpg";
 import { Button } from "../../components/Button/Button";
 import { IconCalendar, IconChat, IconCheck, IconChevron, IconClock, IconStar, IconTrophy } from "../../components/Icons";
 import { Rating } from "../../components/Rating/Rating";
@@ -55,7 +55,7 @@ export function HomePage() {
             </div>
           </div>
           <div className="home-hero-media">
-            <img src={images.hero} alt="Barbero atendiendo a un cliente en Pompilio's Barber Club" />
+            <img src={heroPhoto} alt="Barbero atendiendo a un cliente en Pompilio's Barber Club" />
           </div>
         </div>
       </section>

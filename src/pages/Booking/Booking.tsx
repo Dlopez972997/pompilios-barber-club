@@ -13,6 +13,7 @@ import { IconBolt, IconCheck, IconClock, IconPin, IconShield, IconSwap } from ".
 import { Modal } from "../../components/Modal/Modal";
 import { PageHero } from "../../components/PageHero/PageHero";
 import { Rating } from "../../components/Rating/Rating";
+import { ServiceVisual } from "../../components/ServiceVisual/ServiceVisual";
 import { TimeSlots } from "../../components/TimeSlots/TimeSlots";
 import { defaultBookingDate, formatLongDate, formatPrice, parseSlot, toIcsStamp } from "../../utils/dates";
 
@@ -135,7 +136,7 @@ export function BookingPage() {
           <div className="booking-layout">
             <article className="panel service-panel">
               <h2>Servicio seleccionado</h2>
-              <img src={service.image} alt={service.name} />
+              <ServiceVisual name={service.name} image={service.image} alt={service.name} />
               <h3>{service.name}</h3>
               <p>{service.description}</p>
               <div className="service-meta">
@@ -288,7 +289,7 @@ export function BookingPage() {
                 setPickerOpen(false);
               }}
             >
-              <img src={item.image} alt="" />
+              <ServiceVisual name={item.name} image={item.image} />
               <span>
                 <strong>{item.name}</strong>
                 <small>

@@ -24,7 +24,7 @@ export type Service = {
   price: number;
   priceFrom?: boolean;
   priceLabel?: string;
-  image: string;
+  image?: string;
   popular?: boolean;
   featured?: boolean;
 };

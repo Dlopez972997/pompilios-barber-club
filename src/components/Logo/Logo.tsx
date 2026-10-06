@@ -20,3 +20,5 @@ export function Logo({ variant = "color" }: Props) {
     </Link>
   );
 }
+
+export const BrandLogo = Logo;
