@@ -7,9 +7,9 @@ const shots = [
   { src: images.corte, alt: "Corte de cabello con degradado" },
   { src: images.corteBarba, alt: "Corte y arreglo de barba" },
   { src: images.barba, alt: "Perfilado de barba" },
-  { src: images.andres, alt: "Andrés Rojas, barbero principal" },
-  { src: images.mateo, alt: "Mateo Vargas, barbero" },
-  { src: images.sebastian, alt: "Sebastián León, especialista en barba" },
+  { src: images.andres, alt: "Fernando Lugo, barbero principal" },
+  { src: images.mateo, alt: "Nicolas Zamudio, barbero" },
+  { src: images.sebastian, alt: "Rodolfo Campos, barbero" },
   { src: images.manicure, alt: "Cuidado de manos" },
   { src: images.towels, alt: "Detalle de toallas en el estudio" },
 ];

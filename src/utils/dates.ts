@@ -111,5 +111,5 @@ export function toIcsStamp(date: Date) {
 export { weekdays };
 
 export function formatPrice(price: number) {
-  return `$${price}`;
+  return `$${price.toLocaleString("es-CO")}`;
 }

@@ -1,16 +1,22 @@
 export const branch = {
-  address: "Av. Principal #123, Ciudad de México",
-  days: "Lunes - Sábado",
-  hours: "9:00 a.m. - 8:00 p.m.",
-  phone: "55 1234 5678",
-  phoneHref: "tel:+525512345678",
+  address: "Calle 90 # 14-45, Bogotá",
+  days: "Lunes a viernes",
+  hours: "9:00 a.m. - 7:00 p.m.",
+  weekend: "Sábado 9:00 a.m. - 6:00 p.m. · Domingo 10:00 a.m. - 3:00 p.m.",
+  phone: "317 349 3083",
+  phoneHref: "tel:+573173493083",
   whatsapp:
-    "https://wa.me/525512345678?text=" +
+    "https://wa.me/573173493083?text=" +
     encodeURIComponent("Hola, quiero reservar una cita en Pompilio's Barber Club."),
 };
 
+export const reviewStats = {
+  count: 336,
+  average: "4.9/5",
+};
+
 export const socials = [
-  { id: "instagram", label: "Instagram", href: "https://www.instagram.com/" },
+  { id: "instagram", label: "Instagram", href: "https://www.instagram.com/pompiliosbarberclub/" },
   { id: "facebook", label: "Facebook", href: "https://www.facebook.com/" },
   { id: "tiktok", label: "TikTok", href: "https://www.tiktok.com/" },
 ];

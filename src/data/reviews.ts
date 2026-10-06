@@ -3,17 +3,17 @@ import type { Review } from "./types";
 
 export const reviews: Review[] = [
   {
-    id: "carlos-mendez",
-    name: "Carlos Méndez",
+    id: "carlos-charria",
+    name: "Carlos Charria",
     rating: 5,
-    text: "Excelente servicio, ambiente muy agradable y un corte impecable. Siempre es mi primera opción.",
+    text: "Servicio muy bueno y profesional.",
     image: images.carlos,
   },
   {
-    id: "javier-rojas",
-    name: "Javier Rojas",
+    id: "andres-david-castillo",
+    name: "Andrés David Castillo",
     rating: 5,
-    text: "La atención, el detalle y la calidad son de otro nivel. Se nota la experiencia. Totalmente recomendado.",
+    text: "Todo.",
     image: images.javier,
   },
 ];

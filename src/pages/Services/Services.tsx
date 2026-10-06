@@ -48,9 +48,9 @@ export function ServicesPage() {
         return false;
       }
       if (duration === "long" && service.durationMin < 45) return false;
-      if (price === "low" && service.price > 120) return false;
-      if (price === "mid" && (service.price <= 120 || service.price > 180)) return false;
-      if (price === "high" && service.price <= 180) return false;
+      if (price === "low" && service.price > 40000) return false;
+      if (price === "mid" && (service.price <= 40000 || service.price > 50000)) return false;
+      if (price === "high" && service.price <= 50000) return false;
       return true;
     });
   }, [query, category, duration, price]);
@@ -113,9 +113,9 @@ export function ServicesPage() {
                 <span>Precio</span>
                 <select value={price} aria-label="Filtrar por precio" onChange={(event) => setPrice(event.target.value)}>
                   <option value="all">Todos</option>
-                  <option value="low">Hasta $120</option>
-                  <option value="mid">$121 a $180</option>
-                  <option value="high">Más de $180</option>
+                  <option value="low">Hasta $40.000</option>
+                  <option value="mid">$40.000 a $50.000</option>
+                  <option value="high">Más de $50.000</option>
                 </select>
               </span>
               <IconChevron direction="down" />

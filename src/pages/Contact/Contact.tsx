@@ -25,7 +25,7 @@ export function ContactPage() {
           { label: "Contacto" },
         ]}
         title="Contacto"
-        text="Estamos en Ciudad de México para atenderte con la misma calidad y detalle de siempre."
+        text="Estamos en la Calle 90 # 14-45, Bogotá, para atenderte con la misma calidad y detalle de siempre."
         imageAlt="Pompilio's Barber Club"
       />
       <section className="section">
@@ -40,7 +40,9 @@ export function ContactPage() {
               <IconClock />
               <span>
                 {branch.days}
-                <small>{branch.hours}</small>
+                <small>
+                  {branch.hours}. {branch.weekend}
+                </small>
               </span>
             </p>
             <p>

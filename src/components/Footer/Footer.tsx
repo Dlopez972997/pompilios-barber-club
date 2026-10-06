@@ -23,6 +23,8 @@ export function Footer() {
             <IconClock />
             <span>
               {branch.days} {branch.hours}
+              <br />
+              {branch.weekend}
             </span>
           </p>
           <p>

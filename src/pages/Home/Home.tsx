@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { featuredServices } from "../../data/services";
 import { reviews } from "../../data/reviews";
+import { branch, reviewStats } from "../../data/site";
 import { images } from "../../assets/images";
 import { Button } from "../../components/Button/Button";
 import { IconCalendar, IconChat, IconCheck, IconChevron, IconClock, IconStar, IconTrophy } from "../../components/Icons";
@@ -66,7 +67,7 @@ export function HomePage() {
               <IconChat />
             </span>
             <div>
-              <strong>+500</strong>
+              <strong>{reviewStats.count}</strong>
               <span>Reseñas de clientes</span>
             </div>
           </article>
@@ -75,7 +76,7 @@ export function HomePage() {
               <IconStar />
             </span>
             <div>
-              <strong>4.9/5</strong>
+              <strong>{reviewStats.average}</strong>
               <span>Calificación promedio</span>
             </div>
           </article>
@@ -85,7 +86,7 @@ export function HomePage() {
             </span>
             <div>
               <strong>Años de experiencia</strong>
-              <span>Más de 10 años</span>
+              <span>Más de 8 años</span>
             </div>
           </article>
           <article>
@@ -93,8 +94,8 @@ export function HomePage() {
               <IconClock />
             </span>
             <div>
-              <strong>Lunes - Sábado</strong>
-              <span>9:00 a.m. - 8:00 p.m.</span>
+              <strong>{branch.days}</strong>
+              <span>{branch.hours}</span>
             </div>
           </article>
         </div>

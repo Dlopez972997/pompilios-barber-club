@@ -15,7 +15,7 @@ import { Rating } from "../../components/Rating/Rating";
 import { TimeSlots } from "../../components/TimeSlots/TimeSlots";
 import { defaultBookingDate, formatLongDate, formatPrice, parseSlot, toIcsStamp } from "../../utils/dates";
 
-const primaryPros = ["andres-rojas", "mateo-vargas", "sebastian-leon"];
+const primaryPros = ["fernando-lugo", "nicolas-zamudio", "leonel-gonzalez"];
 
 function unavailableSlots(date: Date | null) {
   if (!date) return [];
@@ -33,7 +33,7 @@ export function BookingPage() {
 
   const [service, setService] = useState<Service>(getService(serviceParam) ?? getService("corte-barba") ?? services[0]);
   const [professional, setProfessional] = useState<TeamMember | null>(
-    getMember(professionalParam) ?? (hasQuery ? null : (getMember("mateo-vargas") ?? null)),
+    getMember(professionalParam) ?? (hasQuery ? null : (getMember("fernando-lugo") ?? null)),
   );
   const [month, setMonth] = useState(() => new Date(initialDate.getFullYear(), initialDate.getMonth(), 1));
   const [date, setDate] = useState<Date | null>(hasQuery ? null : initialDate);

@@ -82,7 +82,7 @@ export function TeamPage() {
                 </span>
                 <div>
                   <strong>Años de experiencia</strong>
-                  <span>Más de 10 años</span>
+                  <span>Más de 8 años</span>
                 </div>
               </article>
             </div>
@@ -174,7 +174,7 @@ export function TeamPage() {
               <IconStar />
             </span>
             <h3>Experiencia que se nota</h3>
-            <p>Más de 10 años realzando tu mejor versión.</p>
+            <p>Más de 8 años realzando tu mejor versión.</p>
           </article>
         </div>
       </section>

@@ -22,7 +22,7 @@ export type TeamMember = {
   role: string;
   bookingLabel: string;
   rating: number;
-  reviews: number;
+  reviews?: number;
   specialties: string[];
   bio: string;
   group: TeamGroup;
