@@ -411,12 +411,12 @@ h1,
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 28px 32px 28px max(20px, calc((100vw - var(--container)) / 2));
+  padding: 16px 28px 16px max(20px, calc((100vw - var(--container)) / 2));
 }
 
 .home-hero-media {
   position: relative;
-  min-height: 420px;
+  min-height: 252px;
 }
 
 .home-hero-media::before {
@@ -441,8 +441,8 @@ h1,
 }
 
 .home-hero h1 {
-  margin: 8px 0 10px;
-  font-size: clamp(34px, 3.2vw, 46px);
+  margin: 6px 0 8px;
+  font-size: clamp(28px, 2.5vw, 36px);
 }
 
 .home-hero h1 span,
@@ -470,6 +470,15 @@ h1,
   flex-wrap: wrap;
   gap: 10px;
   margin-top: 16px;
+}
+
+.home-hero .hero-actions {
+  margin-top: 12px;
+}
+
+.home-hero-copy p {
+  font-size: 15px;
+  line-height: 1.45;
 }
 
 .home-hero-media img,
@@ -570,33 +579,102 @@ h1,
 }
 
 .page-home .section {
-  padding: 28px 0;
+  padding: 8px 0;
 }
 
 .page-home .section-head {
-  margin-bottom: 14px;
+  margin-bottom: 8px;
 }
 
 .page-home .section-head h2,
 .page-home .how-copy h2 {
-  font-size: 30px;
+  font-size: 26px;
+}
+
+.page-home .section-head p,
+.page-home .how-copy p {
+  margin-top: 2px;
+  font-size: 14px;
+}
+
+.page-home .accent-line {
+  margin-top: 8px;
+}
+
+.page-home .card-grid {
+  gap: 12px;
+}
+
+.page-home .service-media {
+  aspect-ratio: auto;
+  height: 78px;
 }
 
 .page-home .service-body {
-  padding: 12px 14px 14px;
+  padding: 8px 12px 10px;
+}
+
+.page-home .service-body h3 {
+  font-size: 18px;
 }
 
 .page-home .service-body p {
   min-height: 0;
-  margin: 6px 0 10px;
+  margin: 2px 0 6px;
+  font-size: 13px;
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.page-home .service-meta {
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+
+.page-home .service-card .btn {
+  min-height: 34px;
+  font-size: 13.5px;
+}
+
+.page-home .metrics-row article {
+  padding: 8px 12px;
+}
+
+.page-home .metric-icon {
+  width: 34px;
+  height: 34px;
+}
+
+.page-home .review-grid {
+  gap: 12px;
 }
 
 .page-home .review-card {
-  padding: 16px;
+  grid-template-columns: 48px 1fr;
+  gap: 12px;
+  padding: 10px 12px;
+}
+
+.page-home .review-card img {
+  width: 48px;
+  height: 48px;
+}
+
+.page-home .review-card blockquote {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+.page-home .how {
+  gap: 16px;
 }
 
 .page-home .how-section {
   padding-top: 4px;
+  padding-bottom: 4px;
 }
 
 .section-head {
