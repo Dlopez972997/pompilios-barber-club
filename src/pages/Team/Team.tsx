@@ -89,7 +89,9 @@ export function TeamPage() {
           </div>
 
           <article className="featured">
-            <img src={featuredMember.image} alt={featuredMember.name} />
+            <div className="featured-photo">
+              <img src={featuredMember.image} alt={featuredMember.name} />
+            </div>
             <div>
               <p className="eyebrow">{featuredMember.role}</p>
               <h2>{featuredMember.name}</h2>
