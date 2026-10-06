@@ -34,7 +34,7 @@ export function HomePage() {
   return (
     <div className="page page-home">
       <section className="home-hero">
-        <div className="container home-hero-grid">
+        <div className="home-hero-grid">
           <div className="home-hero-copy">
             <p className="kicker">Tradición · Estilo · Bienestar</p>
             <h1>
