@@ -11,7 +11,11 @@ export function Logo({ variant = "color" }: Props) {
       <img src={images.logo} alt="" />
       <span className="logo-word">
         <span className="logo-name">POMPILIO'S</span>
-        <span className="logo-sub">BARBER CLUB</span>
+        <span className="logo-sub">
+          <span className="logo-rule" aria-hidden="true" />
+          <span>BARBER CLUB</span>
+          <span className="logo-rule" aria-hidden="true" />
+        </span>
       </span>
     </Link>
   );
