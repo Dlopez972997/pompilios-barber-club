@@ -28,7 +28,7 @@ export function ContactPage() {
         title="Contacto"
         text={`Estamos en la ${branch.street}, ${branch.city}, ${branch.country}, para atenderte con la misma calidad y detalle de siempre.`}
         image={images.towels}
-        imageAlt="Interior de Pompilio's Barber Club"
+        imageAlt="Interior de Pompilio's Hair Atelier"
       />
       <section className="section">
         <div className="container contact-grid">

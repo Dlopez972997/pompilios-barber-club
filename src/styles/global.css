@@ -391,7 +391,7 @@ h1,
 
 .home-hero-media::before {
   width: 18%;
-  background: linear-gradient(90deg, #f4efe7 0%, rgba(244, 239, 231, 0.45) 46%, rgba(244, 239, 231, 0) 100%);
+  background: linear-gradient(90deg, #1d171b 0%, rgba(29, 23, 27, 0.45) 46%, rgba(29, 23, 27, 0) 100%);
 }
 
 .home-hero-media::before,
@@ -406,11 +406,11 @@ h1,
   width: 42%;
   background: linear-gradient(
     90deg,
-    #f4efe7 0%,
-    rgba(244, 239, 231, 0.94) 18%,
-    rgba(244, 239, 231, 0.62) 46%,
-    rgba(244, 239, 231, 0.22) 72%,
-    rgba(244, 239, 231, 0) 100%
+    #1d171b 0%,
+    rgba(29, 23, 27, 0.94) 18%,
+    rgba(29, 23, 27, 0.62) 46%,
+    rgba(29, 23, 27, 0.22) 72%,
+    rgba(29, 23, 27, 0) 100%
   );
   pointer-events: none;
 }
@@ -507,7 +507,8 @@ h1,
 }
 
 .page-hero {
-  background: var(--color-ivory);
+  background: var(--color-carbon);
+  color: var(--color-ivory);
   padding: 10px 0 6px;
 }
 
@@ -657,6 +658,12 @@ h1,
 }
 
 .page-home .service-body h3 {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.page-home .service-body h3 {
   font-size: 18px;
 }
 
@@ -763,7 +770,7 @@ h1,
   background: #fff;
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow);
+  box-shadow: none;
 }
 
 .service-card {
@@ -837,8 +844,13 @@ h1,
   padding: 16px 16px 18px;
 }
 
+.team-card h3 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
 .service-body h3,
-.team-card h3,
 .pro-card strong,
 .picker-card strong {
   font-family: var(--font-sans);
@@ -1366,7 +1378,8 @@ h1,
 
 .team-hero {
   padding: 10px 0 4px;
-  background: #fff;
+  background: var(--color-carbon);
+  color: var(--color-ivory);
 }
 
 .team-metrics {
@@ -2134,6 +2147,91 @@ h1,
   to { opacity: 1; transform: none; }
 }
 
+.home-hero {
+  background: var(--color-carbon);
+  color: var(--color-ivory);
+}
+
+.home-hero h1,
+.page-hero h1,
+.team-hero h1,
+.team-hero h2,
+.featured h2 {
+  color: var(--color-ivory);
+}
+
+.home-hero h1 span,
+.team-hero h1 span {
+  color: var(--color-wine);
+}
+
+.home-hero .kicker,
+.page-hero .kicker,
+.team-hero .eyebrow {
+  color: var(--color-gold);
+}
+
+.home-hero-copy p,
+.page-hero p,
+.team-hero-grid > div > p,
+.team-hero .team-metrics span,
+.featured > div > p {
+  color: #e4d9cc;
+}
+
+.page-hero .crumbs,
+.team-hero .crumbs,
+.page-hero .crumbs a,
+.team-hero .crumbs a {
+  color: #d9cfc3;
+}
+
+.how-section {
+  background: var(--color-carbon);
+  color: var(--color-ivory);
+}
+
+.page-home .how-section {
+  padding: 28px 0;
+}
+
+.how-section h2,
+.how-section strong {
+  color: var(--color-ivory);
+}
+
+.how-section p,
+.how-section small {
+  color: #e4d9cc;
+}
+
+.how-section .how-icon {
+  color: var(--color-gold);
+  background: transparent;
+  border: 1px solid rgba(201, 154, 90, 0.55);
+}
+
+.page-gallery .section {
+  background: var(--color-carbon);
+}
+
+.page-gallery .gallery-badge {
+  color: var(--color-carbon);
+  border: 1px solid rgba(201, 154, 90, 0.45);
+}
+
+.summary {
+  border-top: 2px solid var(--color-gold);
+}
+
+.team-hero .team-metrics article + article {
+  border-left-color: rgba(244, 239, 231, 0.18);
+}
+
+.experience-banner img {
+  filter: saturate(0.82) sepia(0.08);
+}
+
 @media (max-width: 1180px) {
   .nav {
     gap: 14px;
@@ -2232,7 +2330,7 @@ h1,
     left: 0;
     width: auto;
     height: 52px;
-    background: linear-gradient(180deg, #f4efe7 0%, rgba(244, 239, 231, 0.7) 42%, rgba(244, 239, 231, 0) 100%);
+    background: linear-gradient(180deg, #1d171b 0%, rgba(29, 23, 27, 0.72) 42%, rgba(29, 23, 27, 0) 100%);
   }
 
   .metrics-row,

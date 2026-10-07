@@ -57,7 +57,7 @@ export function TeamPage() {
             </h1>
             <p>
               Talento, experiencia y pasión por el detalle. Conoce a los especialistas que hacen única la experiencia en
-              Pompilio's Barber Club.
+              Pompilio's Hair Atelier.
             </p>
             <div className="team-metrics">
               <article>
@@ -168,7 +168,7 @@ export function TeamPage() {
               <IconDiamond />
             </span>
             <h3>Equipo de la casa</h3>
-            <p>Quienes atienden en Pompilio's Barber Club.</p>
+            <p>Quienes atienden en Pompilio's Hair Atelier.</p>
           </article>
           <article>
             <span className="metric-icon">

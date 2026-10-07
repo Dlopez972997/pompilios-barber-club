@@ -97,7 +97,7 @@ export function BookingPage() {
     const ics = [
       "BEGIN:VCALENDAR",
       "VERSION:2.0",
-      "PRODID:-//Pompilios Barber Club//ES",
+      "PRODID:-//Pompilios Hair Atelier//ES",
       "BEGIN:VEVENT",
       `DTSTART:${toIcsStamp(start)}`,
       `DTEND:${toIcsStamp(end)}`,
@@ -310,7 +310,7 @@ export function BookingPage() {
             <span className="confirm-badge">
               <IconCheck size={22} />
             </span>
-            <p>Te esperamos en Pompilio's Barber Club. Guarda estos datos de tu cita.</p>
+            <p>Te esperamos en Pompilio's Hair Atelier. Guarda estos datos de tu cita.</p>
             <ul>
               <li>
                 <span>Servicio</span>

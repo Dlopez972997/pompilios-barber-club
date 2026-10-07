@@ -43,7 +43,7 @@ export function GalleryPage() {
             <span aria-current="page">Galería</span>
           </nav>
           <h1>Galería</h1>
-          <p>Una mirada a la experiencia, el detalle y el ambiente de Pompilio's Barber Club.</p>
+          <p>Una mirada a la experiencia, el detalle y el ambiente de Pompilio's Hair Atelier.</p>
         </div>
       </section>
 

@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { featuredServices } from "../../data/services";
 import { reviews } from "../../data/reviews";
 import { branch, reviewStats } from "../../data/site";
-import heroPhoto from "../../assets/home/pompilios-hero.jpg";
+import heroPhoto from "../../assets/home/pompilios-atelier-hero.jpg";
 import { Button } from "../../components/Button/Button";
 import { IconCalendar, IconChat, IconCheck, IconChevron, IconClock, IconStar, IconTrophy } from "../../components/Icons";
 import { Rating } from "../../components/Rating/Rating";
@@ -36,13 +36,13 @@ export function HomePage() {
       <section className="home-hero">
         <div className="home-hero-grid">
           <div className="home-hero-copy">
-            <p className="kicker">Tradición · Estilo · Bienestar</p>
+            <p className="kicker">Cabello, forma y criterio.</p>
             <h1>
               Más que una barbería,
               <span> una experiencia impecable.</span>
             </h1>
             <p>
-              En Pompilio's Barber Club combinamos tradición, estilo y atención al detalle para que siempre te veas y te
+              En Pompilio's Hair Atelier combinamos tradición, estilo y atención al detalle para que siempre te veas y te
               sientas mejor.
             </p>
             <div className="hero-actions">
@@ -55,7 +55,7 @@ export function HomePage() {
             </div>
           </div>
           <div className="home-hero-media">
-            <img src={heroPhoto} alt="Barbero atendiendo a un cliente en Pompilio's Barber Club" />
+            <img src={heroPhoto} alt="Barbero atendiendo a un cliente en Pompilio's Hair Atelier" />
           </div>
         </div>
       </section>

@@ -207,7 +207,7 @@ export function ServicesPage() {
           </div>
 
           <section className="experience-banner">
-            <img src={images.towels} alt="Toallas de Pompilio's Barber Club" />
+            <img src={images.towels} alt="Toallas de Pompilio's Hair Atelier" />
             <div>
               <p>Tradición · Estilo · Bienestar</p>
               <h2>

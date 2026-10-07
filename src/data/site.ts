@@ -10,7 +10,7 @@ export const branch = {
   phoneHref: "tel:+573173493083",
   whatsapp:
     "https://wa.me/573173493083?text=" +
-    encodeURIComponent("Hola, quiero reservar una cita en Pompilio's Barber Club."),
+    encodeURIComponent("Hola, quiero reservar una cita en Pompilio's Hair Atelier."),
 };
 
 export const reviewStats = {

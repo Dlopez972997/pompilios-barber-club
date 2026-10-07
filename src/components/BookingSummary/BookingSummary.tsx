@@ -59,7 +59,7 @@ export function BookingSummary({ service, professional, date, time, onConfirm }:
           </span>
           <div>
             <span>Sucursal</span>
-            <strong>Pompilio's Barber Club</strong>
+            <strong>Pompilio's Hair Atelier</strong>
             <small>
               {branch.street}
               <br />
