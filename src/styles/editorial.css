@@ -584,7 +584,7 @@ body:has(.page-services) .menu-toggle {
 }
 
 .page-services .services-layout {
-  grid-template-columns: minmax(0, 74%) minmax(240px, 26%);
+  grid-template-columns: minmax(0, 1fr) 372px;
   gap: 16px;
   align-items: start;
 }
@@ -678,14 +678,63 @@ body:has(.page-services) .menu-toggle {
 }
 
 .page-services .reserve-card {
-  padding: 22px 18px 18px;
+  position: relative;
+  overflow: hidden;
+  padding: 36px 34px 30px;
   background:
-    radial-gradient(140% 70% at 100% 0%, rgba(201, 154, 90, 0.1), transparent 46%),
+    radial-gradient(140% 70% at 100% 0%, rgba(201, 154, 90, 0.08), transparent 46%),
+    radial-gradient(80% 50% at 0% 100%, rgba(139, 23, 53, 0.18), transparent 52%),
     #1d171b;
   color: #f4efe7;
-  border: 1px solid rgba(201, 154, 90, 0.4);
-  border-radius: 16px;
-  box-shadow: none;
+  border: 1px solid rgba(201, 154, 90, 0.35);
+  border-radius: 20px;
+  box-shadow:
+    0 10px 30px rgba(29, 23, 27, 0.18),
+    0 24px 55px rgba(29, 23, 27, 0.12);
+  opacity: 0;
+  transform: translateY(18px);
+  transition: transform 320ms ease, box-shadow 320ms ease;
+}
+
+.page-services .reserve-card.is-in {
+  animation: reserve-rise 560ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.page-services .reserve-card.is-in:hover {
+  animation: none;
+  opacity: 1;
+  transform: translateY(-3px);
+  box-shadow:
+    0 14px 34px rgba(29, 23, 27, 0.22),
+    0 28px 58px rgba(29, 23, 27, 0.16);
+}
+
+.page-services .reserve-card::before,
+.page-services .reserve-card::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.page-services .reserve-card::before {
+  top: -70px;
+  right: -78px;
+  width: 230px;
+  height: 230px;
+  border: 1px solid rgba(201, 154, 90, 0.22);
+  border-radius: 50%;
+}
+
+.page-services .reserve-card::after {
+  inset: 0;
+  background:
+    radial-gradient(320px 240px at 115% 18%, rgba(201, 154, 90, 0.08), transparent 62%),
+    radial-gradient(180px 320px at 100% 70%, rgba(244, 239, 231, 0.04), transparent 70%);
+}
+
+.page-services .reserve-card > * {
+  position: relative;
+  z-index: 1;
 }
 
 .page-services .reserve-card h2,
@@ -696,26 +745,92 @@ body:has(.page-services) .menu-toggle {
 }
 
 .page-services .reserve-card h2 {
-  max-width: 9ch;
-  font-size: clamp(26px, 2vw, 32px);
-  line-height: 1.02;
+  max-width: 6.4em;
+  margin: 0;
+  font-size: 42px;
+  line-height: 0.98;
 }
 
-.page-services .reserve-card > p,
-.page-services .reserve-card small {
+.page-services .reserve-card > p {
+  max-width: 28ch;
+  margin: 18px 0 0;
   color: rgba(244, 239, 231, 0.72);
+  font-size: 16.5px;
+  line-height: 1.5;
+}
+
+.page-services .reserve-card ol {
+  gap: 26px;
+  margin: 30px 0 32px;
+}
+
+.page-services .reserve-card li {
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.page-services .reserve-card li div {
+  display: grid;
+  gap: 4px;
 }
 
 .page-services .reserve-card ol span {
+  width: 42px;
+  height: 42px;
   background: transparent;
   border: 1px solid #c99a5a;
   color: #c99a5a;
   font-family: var(--font-serif);
+  font-size: 16px;
   font-weight: 500;
 }
 
-.page-services .reserve-card .btn {
-  border-radius: 10px;
+.page-services .reserve-card strong {
+  font-size: 20px;
+  line-height: 1.15;
+}
+
+.page-services .reserve-card small {
+  color: rgba(244, 239, 231, 0.7);
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.page-services .reserve-card .btn,
+.page-services .reserve-card .btn:hover {
+  min-height: 54px;
+  border-radius: 13px;
+  background: #8b1735;
+  border-color: #8b1735;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  transition: background 300ms ease, transform 300ms ease, box-shadow 300ms ease;
+}
+
+.page-services .reserve-card .btn:hover {
+  background: #6e122a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(29, 23, 27, 0.28);
+}
+
+.page-services .reserve-card .btn svg {
+  transition: transform 300ms ease;
+}
+
+.page-services .reserve-card .btn:hover svg {
+  transform: translateX(4px);
+}
+
+@keyframes reserve-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .services-perks {
@@ -1681,10 +1796,17 @@ body:has(.page-team) .footer {
   .page-team .team-card.is-in,
   .page-team .team-card:hover,
   .page-team .featured:hover .featured-photo img,
-  .page-team .team-card:hover .team-card-media img {
+  .page-team .team-card:hover .team-card-media img,
+  .page-services .reserve-card,
+  .page-services .reserve-card.is-in,
+  .page-services .reserve-card:hover,
+  .page-services .reserve-card .btn,
+  .page-services .reserve-card .btn:hover,
+  .page-services .reserve-card .btn svg {
     opacity: 1;
     transform: none;
     animation: none;
+    transition: none;
   }
 
   .booking-hero,
@@ -1730,7 +1852,7 @@ body:has(.page-team) .footer {
   }
 
   .page-services .services-layout {
-    grid-template-columns: minmax(0, 74%) minmax(250px, 26%);
+    grid-template-columns: minmax(0, 1fr) 372px;
   }
 
   .page-services .services-layout .card-grid-3 {
@@ -1925,6 +2047,14 @@ body:has(.page-team) .footer {
 
   .page-services .page-hero h1 {
     font-size: 46px;
+  }
+
+  .page-services .reserve-card {
+    padding: 28px 22px 24px;
+  }
+
+  .page-services .reserve-card h2 {
+    font-size: 34px;
   }
 
   .page-services .services-layout .card-grid-3 {

@@ -60,6 +60,25 @@ export function ServicesPage() {
     setPage(1);
   }, [query, category, duration, price]);
 
+  useEffect(() => {
+    const node = document.querySelector(".page-services .reserve-card");
+    if (!node) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      node.classList.add("is-in");
+      return;
+    }
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry?.isIntersecting) return;
+        node.classList.add("is-in");
+        observer.disconnect();
+      },
+      { threshold: 0.2 },
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="page page-services">
       <div className="services-hero">
