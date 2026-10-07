@@ -25,6 +25,7 @@ export type Service = {
   priceFrom?: boolean;
   priceLabel?: string;
   image?: string;
+  imagePosition?: string;
   popular?: boolean;
   featured?: boolean;
 };

@@ -1226,7 +1226,9 @@ export const services: Service[] = [
 ];
 
 for (const service of services) {
-  service.image = resolveServiceImage(service);
+  const visual = resolveServiceImage(service);
+  service.image = visual?.image;
+  service.imagePosition = visual?.objectPosition;
 }
 
 export const featuredServices = services.filter((service) => service.featured);

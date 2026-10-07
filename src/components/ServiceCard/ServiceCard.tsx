@@ -12,7 +12,7 @@ export function ServiceCard({ service }: Props) {
   return (
     <article id={`service-${service.slug}`} className="service-card">
       <div className="service-media">
-        <ServiceVisual name={service.name} image={service.image} alt={service.name} />
+        <ServiceVisual name={service.name} image={service.image} imagePosition={service.imagePosition} category={service.category} alt={service.name} />
       </div>
       <div className="service-body">
         <h3>{service.name}</h3>
