@@ -3881,6 +3881,26 @@ html,body,#root { max-width: 100%; }
   .style-chat-typing i { animation: none; }
   .style-chat-nudge { animation: none; }
 }
+
+.style-chat-reason { margin: 0; padding: 9px 10px; border-left: 2px solid #c99a5a; color: #51464a; background: #fbf7f0; font-size: 10px; line-height: 1.5; }
+.style-chat-photo-offer { display: grid; gap: 8px; max-width: 100%; padding: 10px 11px; border: 1px solid rgba(201,154,90,.35); border-radius: 12px; color: #51464a; background: #fbf8f3; font-size: 10px; line-height: 1.45; }
+.style-chat-photo-offer > div { display: flex; flex-wrap: wrap; gap: 7px; }
+.style-chat-photo-offer button { min-height: 32px; padding: 0 12px; border: 1px solid #8b1735; border-radius: 999px; color: #fff; background: #8b1735; font: inherit; font-size: 10px; cursor: pointer; }
+.style-chat-photo-offer button + button { color: #5c4f53; border-color: rgba(29,23,27,.14); background: #fff; }
+.style-chat-user-photo { width: min(220px, 82%); max-height: 210px; align-self: flex-end; border: 1px solid rgba(201,154,90,.45); border-radius: 13px; object-fit: cover; }
+.style-chat-file-input { display: none !important; }
+.style-chat-input .style-chat-upload-button { width: 36px; height: 36px; flex: 0 0 auto; border: 1px solid rgba(201,154,90,.55); color: #8b1735; background: #fffaf3; font-size: 20px; line-height: 1; }
+.style-chat-input .style-chat-upload-button:hover { color: #fff; background: #8b1735; }
+.style-chat-image-preview { display: flex; align-items: center; gap: 8px; padding: 8px 13px; color: #51464a; background: #fff; font-size: 10px; }
+.style-chat-image-preview img { width: 38px; height: 38px; border-radius: 7px; object-fit: cover; }
+.style-chat-image-preview span { overflow: hidden; flex: 1; text-overflow: ellipsis; white-space: nowrap; }
+.style-chat-image-preview button { border: 0; color: #8b1735; background: transparent; font: inherit; cursor: pointer; }
+.style-chat-upload-error { margin: 0; padding: 0 14px 8px; color: #8b1735; background: #fff; font-size: 10px; }
+@media (max-width: 480px) {
+  .style-chat-photo-offer { padding: 9px; }
+  .style-chat-user-photo { width: min(190px, 78%); max-height: 180px; }
+  .style-chat-input .style-chat-upload-button { width: 34px; height: 34px; }
+}
 /* Gallery media follows its source aspect ratio so reel frames stay complete. */
 .page-gallery .gallery-grid .gallery-item img { height: auto; aspect-ratio: auto; object-fit: cover; background: transparent; }
 

@@ -1,5 +1,6 @@
 node_modules/
 dist/
+server/advisor-catalog.json
 .env
 .env.*
 !.env.example

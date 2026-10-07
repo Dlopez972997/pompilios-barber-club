@@ -20,6 +20,8 @@ export type AssistantContext = {
   urgency?: string;
   selectedProfessionalId?: string;
   selectedServiceId?: string;
+  awaitingAnswer?: "correction_detail" | "preserve_length" | "style_goal" | "hair_length" | "maintenance" | "beard_goal";
+  maintenancePreference?: string;
 };
 
 const roleGroups: Record<AssistantIntent, TeamMember["group"][]> = {
@@ -105,6 +107,8 @@ export function updateAssistantContext(message: string, previous: AssistantConte
           : /cuidar|mantener/.test(text) && /barba/.test(text) ? "mantenimiento de barba" : previous.desiredResult;
   const hairLength = /largo|larga|largo/.test(text) ? "largo"
     : /corto|corta/.test(text) ? "corto" : previous.hairLength;
+  const maintenancePreference = /minuto|rapido|poco tiempo|facil de mantener|bajo mantenimiento/.test(text) ? "mantenimiento sencillo"
+    : /peinar|peinado diario|dedicar tiempo|me gusta peinar/.test(text) ? "dispuesto a dedicar tiempo al peinado" : previous.maintenancePreference;
   const hairType = /rizado|crespo|ondulado|liso|afro/.exec(text)?.[0] ?? previous.hairType;
   const previousService = /despues de|despues del|me hicieron|me realizaron/.test(text) ? mentionedService?.name ?? previous.previousService : previous.previousService;
   const urgency = /hoy|urgente|lo antes posible/.test(text) ? "El cliente expresó urgencia" : previous.urgency;
@@ -128,6 +132,7 @@ export function updateAssistantContext(message: string, previous: AssistantConte
     ...(resetPreviousRecommendation ? { selectedServiceId: undefined } : {}),
     ...(resolvedDesiredResult !== undefined ? { desiredResult: resolvedDesiredResult } : resetPreviousRecommendation ? { desiredResult: undefined } : {}),
     ...(hairLength ? { hairLength } : {}),
+    ...(maintenancePreference ? { maintenancePreference } : {}),
     ...(hairType ? { hairType } : {}),
     ...(previousService ? { previousService } : {}),
     ...(urgency ? { urgency } : {}),
