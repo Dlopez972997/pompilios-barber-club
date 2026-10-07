@@ -1,4 +1,14 @@
-﻿.page-home .home-hero {
+﻿body:has(.page-home) .header-inner,
+body:has(.page-team) .header-inner {
+  min-height: 64px;
+}
+
+body:has(.page-home) .logo img,
+body:has(.page-team) .logo img {
+  height: 48px;
+}
+
+.page-home .home-hero {
   background: var(--color-ivory);
   color: var(--color-carbon);
 }
@@ -342,7 +352,7 @@
 
 body:has(.page-services) .header .container,
 .page-services .container {
-  width: min(1460px, calc(100% - 48px));
+  width: min(1360px, calc(100% - 48px));
 }
 
 body:has(.page-services) .header {
@@ -356,7 +366,7 @@ body:has(.page-services) .header-inner {
 }
 
 body:has(.page-services) .logo img {
-  height: 52px;
+  height: 46px;
 }
 
 body:has(.page-services) .nav-link,
@@ -401,7 +411,7 @@ body:has(.page-services) .menu-toggle {
   display: grid;
   grid-template-columns: minmax(300px, 0.4fr) minmax(0, 0.6fr);
   align-items: stretch;
-  height: 292px;
+  height: 260px;
   min-height: 0;
   gap: 0;
 }
@@ -415,7 +425,7 @@ body:has(.page-services) .menu-toggle {
   max-width: 8ch;
   margin: 4px 0 8px;
   color: #ffffff;
-  font-size: clamp(40px, 3.5vw, 56px);
+  font-size: clamp(36px, 3vw, 48px);
   line-height: 0.92;
 }
 
@@ -442,13 +452,13 @@ body:has(.page-services) .menu-toggle {
 
 .page-services .page-hero-media {
   position: relative;
-  height: 292px;
+  height: 260px;
   margin: 0;
 }
 
 .page-services .page-hero-media img {
   width: 100%;
-  height: 292px;
+  height: 260px;
   min-height: 0;
   object-fit: cover;
   object-position: 68% center;
@@ -463,7 +473,7 @@ body:has(.page-services) .menu-toggle {
   position: absolute;
   z-index: 3;
   top: 50%;
-  right: max(18px, calc((100vw - 1460px) / 2 + 18px));
+  right: max(18px, calc((100vw - 1360px) / 2 + 18px));
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -598,7 +608,7 @@ body:has(.page-services) .menu-toggle {
 
 .page-services .service-media {
   aspect-ratio: auto;
-  height: 172px;
+  height: 152px;
   overflow: hidden;
 }
 
@@ -755,7 +765,7 @@ body:has(.page-services) .menu-toggle {
 
 body:has(.page-booking) .header .container,
 .page-booking .container {
-  width: min(1460px, calc(100% - 48px));
+  width: min(1360px, calc(100% - 48px));
 }
 
 body:has(.page-booking) .header {
@@ -769,7 +779,7 @@ body:has(.page-booking) .header-inner {
 }
 
 body:has(.page-booking) .logo img {
-  height: 52px;
+  height: 46px;
 }
 
 body:has(.page-booking) .nav-link,
@@ -826,7 +836,7 @@ body:has(.page-booking) .mobile-link {
   display: grid;
   grid-template-columns: minmax(300px, 0.42fr) minmax(0, 0.58fr);
   align-items: stretch;
-  height: 300px;
+  height: 240px;
   min-height: 0;
   gap: 0;
 }
@@ -840,7 +850,7 @@ body:has(.page-booking) .mobile-link {
   max-width: 9ch;
   margin: 4px 0 8px;
   color: #ffffff;
-  font-size: clamp(40px, 3.4vw, 56px);
+  font-size: clamp(36px, 3.1vw, 48px);
   line-height: 0.92;
 }
 
@@ -861,13 +871,13 @@ body:has(.page-booking) .mobile-link {
 
 .page-booking .page-hero-media {
   position: relative;
-  height: 300px;
+  height: 240px;
   margin: 0;
 }
 
 .page-booking .page-hero-media img {
   width: 100%;
-  height: 300px;
+  height: 240px;
   min-height: 0;
   object-fit: cover;
   object-position: 62% 30%;
@@ -880,14 +890,14 @@ body:has(.page-booking) .mobile-link {
 
 .page-booking .stepper {
   margin: 0;
-  padding: 4px 0 18px;
+  padding: 2px 0 10px;
   animation: booking-fade 700ms ease 80ms both;
 }
 
 .page-booking .stepper-item strong {
   color: #f4efe7;
   font-family: var(--font-serif);
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
 }
 
@@ -901,8 +911,8 @@ body:has(.page-booking) .mobile-link {
 }
 
 .page-booking .stepper-index {
-  width: 34px;
-  height: 34px;
+  width: 32px;
+  height: 32px;
   background: transparent;
   border: 1px solid #c99a5a;
   color: #c99a5a;
@@ -927,7 +937,7 @@ body:has(.page-booking) .mobile-link {
 }
 
 .page-booking .booking-section {
-  padding: 18px 0 8px;
+  padding: 12px 0 4px;
   background: transparent;
 }
 
@@ -1177,7 +1187,7 @@ body:has(.page-booking) .mobile-link {
 
 body:has(.page-team) .header .container,
 .page-team .container {
-  width: min(1380px, calc(100% - 48px));
+  width: min(1320px, calc(100% - 48px));
 }
 
 .page-team {
@@ -1194,7 +1204,7 @@ body:has(.page-team) .header .container,
 .page-team .team-hero {
   position: relative;
   overflow: hidden;
-  padding: 22px 0 32px;
+  padding: 12px 0 16px;
   background:
     radial-gradient(420px 520px at 50% 52%, rgba(201, 154, 90, 0.2), transparent 64%),
     radial-gradient(720px 380px at 8% 90%, rgba(139, 23, 53, 0.2), transparent 68%),
@@ -1225,14 +1235,14 @@ body:has(.page-team) .header .container,
   z-index: 1;
   grid-template-columns: minmax(280px, 0.92fr) minmax(250px, 0.7fr) minmax(250px, 0.82fr);
   align-items: center;
-  gap: 32px;
+  gap: 22px;
 }
 
 .page-team .team-hero h1 {
   max-width: 8ch;
   margin: 8px 0 12px;
   color: #ffffff;
-  font-size: clamp(52px, 4.2vw, 72px);
+  font-size: clamp(42px, 3.4vw, 56px);
   line-height: 0.9;
 }
 
@@ -1267,7 +1277,7 @@ body:has(.page-team) .header .container,
 
 .page-team .featured-photo img {
   width: 100%;
-  height: 430px;
+  height: 344px;
   min-height: 0;
   border-radius: 18px;
   object-position: center 16%;
@@ -1284,7 +1294,7 @@ body:has(.page-team) .header .container,
   margin: 6px 0 10px;
   color: #f4efe7;
   font-family: var(--font-serif);
-  font-size: clamp(36px, 2.8vw, 48px);
+  font-size: clamp(30px, 2.4vw, 40px);
   font-weight: 500;
   line-height: 1;
 }
@@ -1410,7 +1420,7 @@ body:has(.page-team) .header .container,
 .page-team .team-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 32px 24px;
+  gap: 22px 16px;
   overflow: visible;
   scroll-snap-type: none;
   perspective: 1200px;
@@ -1448,7 +1458,7 @@ body:has(.page-team) .header .container,
 .page-team .team-card.is-in:hover {
   animation: none;
   opacity: 1;
-  transform: translateY(-6px);
+  transform: translateY(-4px);
   border-color: rgba(201, 154, 90, 0.72);
   box-shadow:
     0 8px 16px rgba(0, 0, 0, 0.2),
@@ -1456,7 +1466,7 @@ body:has(.page-team) .header .container,
 }
 
 .page-team .team-card-media {
-  aspect-ratio: 4 / 4.6;
+  aspect-ratio: 4 / 3.9;
   border-radius: 0;
 }
 
@@ -1668,6 +1678,30 @@ body:has(.page-team) .footer {
 }
 
 @media (min-width: 1041px) {
+  body:has(.page-home) .header-cta,
+  body:has(.page-services) .header-cta,
+  body:has(.page-team) .header-cta,
+  body:has(.page-booking) .header-cta {
+    min-height: 40px;
+    padding: 0 14px;
+    font-size: 14px;
+  }
+
+  .page-home .home-hero-media {
+    height: 300px;
+    max-height: 320px;
+    aspect-ratio: auto;
+  }
+
+  .page-home .home-featured .service-media {
+    height: 146px;
+    aspect-ratio: auto;
+  }
+
+  .page-home .how-copy h2 {
+    font-size: clamp(28px, 2.2vw, 36px);
+  }
+
   .page-services .services-layout {
     grid-template-columns: minmax(0, 74%) minmax(250px, 26%);
   }
@@ -1716,7 +1750,7 @@ body:has(.page-team) .footer {
   }
 
   .page-team .featured-photo img {
-    height: 360px;
+    height: 300px;
   }
 
   .page-team .team-grid {
@@ -1794,7 +1828,7 @@ body:has(.page-team) .footer {
   }
 
   .page-team .featured-photo img {
-    height: 320px;
+    height: 280px;
   }
 
   .page-team .team-head,
