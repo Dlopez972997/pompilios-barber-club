@@ -834,53 +834,67 @@ body:has(.page-booking) .mobile-link {
 
 .page-booking .page-hero-grid {
   display: grid;
-  grid-template-columns: minmax(300px, 0.42fr) minmax(0, 0.58fr);
+  grid-template-columns: minmax(280px, 0.4fr) minmax(0, 0.6fr);
   align-items: stretch;
-  height: 240px;
+  height: 300px;
   min-height: 0;
   gap: 0;
 }
 
 .page-booking .page-hero-grid > div:first-child {
   justify-content: center;
-  padding: 8px 12px 12px 0;
+  padding: 6px 20px 8px 0;
 }
 
 .page-booking .page-hero h1 {
-  max-width: 9ch;
-  margin: 4px 0 8px;
-  color: #ffffff;
-  font-size: clamp(36px, 3.1vw, 48px);
-  line-height: 0.92;
+  max-width: 12ch;
+  margin: 6px 0 10px;
+  color: #f4efe7;
+  font-size: clamp(44px, 3.6vw, 58px);
+  line-height: 0.94;
 }
 
 .page-booking .page-hero p,
 .page-booking .crumbs,
 .page-booking .crumbs a {
-  max-width: 42ch;
+  max-width: 38ch;
   margin: 0;
-  color: #e7ddd2;
+  color: rgba(244, 239, 231, 0.78);
   font-size: 14.5px;
-  line-height: 1.4;
+  line-height: 1.45;
 }
 
-.page-booking .crumbs {
+.page-booking .page-hero p::after {
+  content: "";
+  display: block;
+  width: 46px;
+  height: 1px;
+  margin-top: 16px;
+  background: #c99a5a;
+}
+
+.page-booking .crumbs,
+.page-booking .crumbs a {
+  color: rgba(244, 239, 231, 0.72);
+  font-size: 12.5px;
+}
+
+.page-booking .crumbs [aria-current="page"] {
   color: #c99a5a;
-  font-size: 13px;
 }
 
 .page-booking .page-hero-media {
   position: relative;
-  height: 240px;
+  height: 300px;
   margin: 0;
 }
 
 .page-booking .page-hero-media img {
   width: 100%;
-  height: 240px;
+  height: 300px;
   min-height: 0;
   object-fit: cover;
-  object-position: 62% 30%;
+  object-position: 58% 28%;
 }
 
 .page-booking .page-hero-media::before {
@@ -889,20 +903,32 @@ body:has(.page-booking) .mobile-link {
 }
 
 .page-booking .stepper {
+  align-items: center;
   margin: 0;
-  padding: 2px 0 10px;
+  padding: 6px 0 18px;
   animation: booking-fade 700ms ease 80ms both;
 }
 
+.page-booking .stepper-item {
+  align-items: center;
+  gap: 12px;
+}
+
 .page-booking .stepper-item strong {
+  display: block;
   color: #f4efe7;
   font-family: var(--font-serif);
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 500;
+  line-height: 1.15;
 }
 
 .page-booking .stepper-item small {
-  color: rgba(244, 239, 231, 0.62);
+  display: block;
+  margin-top: 2px;
+  color: rgba(244, 239, 231, 0.58);
+  font-size: 12.5px;
+  line-height: 1.3;
 }
 
 .page-booking .stepper-item.is-pending strong,
@@ -911,29 +937,30 @@ body:has(.page-booking) .mobile-link {
 }
 
 .page-booking .stepper-index {
-  width: 32px;
-  height: 32px;
-  background: transparent;
-  border: 1px solid #c99a5a;
+  width: 42px;
+  height: 42px;
+  background: #1d171b;
+  border: 1.5px solid #c99a5a;
   color: #c99a5a;
   font-family: var(--font-serif);
+  font-size: 16px;
   font-weight: 500;
 }
 
 .page-booking .stepper-item.is-current .stepper-index {
   background: #8b1735;
-  border-color: #8b1735;
+  border-color: #c99a5a;
   color: #ffffff;
 }
 
 .page-booking .stepper-item.is-complete .stepper-index {
-  background: transparent;
+  background: #1d171b;
   border-color: #c99a5a;
   color: #c99a5a;
 }
 
 .page-booking .stepper-sep {
-  color: rgba(201, 154, 90, 0.75);
+  display: none;
 }
 
 .page-booking .booking-section {

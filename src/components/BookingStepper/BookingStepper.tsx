@@ -1,4 +1,4 @@
-import { IconCheck, IconChevron } from "../Icons";
+import { IconChevron } from "../Icons";
 
 export type StepState = "complete" | "current" | "pending";
 
@@ -21,7 +21,7 @@ export function BookingStepper({ states }: Props) {
         return (
           <li key={step.title} className={`stepper-item is-${state}`}>
             <span className="stepper-index" aria-hidden="true">
-              {state === "complete" ? <IconCheck size={15} /> : index + 1}
+              {index + 1}
             </span>
             <span>
               <strong>{step.title}</strong>
