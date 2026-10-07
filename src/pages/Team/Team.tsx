@@ -53,7 +53,7 @@ export function TeamPage() {
               <span aria-current="page">Nuestro equipo</span>
             </nav>
             <h1>
-              Nuestro <span>equipo</span>
+              Talento <span>con criterio.</span>
             </h1>
             <p>
               Talento, experiencia y pasión por el detalle. Conoce a los especialistas que hacen única la experiencia en

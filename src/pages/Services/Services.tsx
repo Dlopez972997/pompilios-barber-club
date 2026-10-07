@@ -67,7 +67,12 @@ export function ServicesPage() {
           { label: "Inicio", to: "/" },
           { label: "Servicios" },
         ]}
-        title="Servicios"
+        title={
+          <>
+            Servicios
+            <span> con criterio.</span>
+          </>
+        }
         text="Servicios de barbería con la calidad, tradición y atención al detalle que nos distingue. Elige tu servicio y vive la experiencia Pompilio's."
         image={images.corte}
         imageAlt="Corte de cabello en proceso en Pompilio's"

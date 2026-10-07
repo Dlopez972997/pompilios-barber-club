@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { branch, navItems, socials } from "../../data/site";
 import { IconClock, IconInstagram, IconPhone, IconPin, IconWhatsapp } from "../Icons";
+import { Button } from "../Button/Button";
 import { Logo } from "../Logo/Logo";
 
 const socialIcon = {
@@ -62,6 +63,9 @@ export function Footer() {
             <IconWhatsapp />
             Escríbenos por WhatsApp
           </a>
+          <Button to="/reservas" arrow>
+            Reservar cita
+          </Button>
           <small>Atención rápida y personalizada.</small>
         </div>
       </div>

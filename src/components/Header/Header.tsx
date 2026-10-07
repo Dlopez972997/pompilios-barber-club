@@ -28,8 +28,10 @@ export function Header() {
     };
   }, [open]);
 
+  const overlay = location.pathname === "/" && !scrolled && !open;
+
   return (
-    <header className={`header${scrolled ? " is-scrolled" : ""}`}>
+    <header className={`header${scrolled ? " is-scrolled" : ""}${overlay ? " is-overlay" : ""}`}>
       <div className="container header-inner">
         <Logo />
         <nav className="nav" aria-label="Principal">
