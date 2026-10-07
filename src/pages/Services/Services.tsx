@@ -133,7 +133,7 @@ export function ServicesPage() {
               ))}
             </div>
             <div className="services-filters">
-              <label className="filter-select">
+              <label className={`filter-select${duration !== "all" ? " is-selected" : ""}`}>
                 <IconClock size={16} />
                 <span>
                   <span>Duración</span>
@@ -145,7 +145,7 @@ export function ServicesPage() {
                   </select>
                 </span>
               </label>
-              <label className="filter-select">
+              <label className={`filter-select${price !== "all" ? " is-selected" : ""}`}>
                 <IconDiamond size={16} />
                 <span>
                   <span>Precio</span>

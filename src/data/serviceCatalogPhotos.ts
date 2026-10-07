@@ -1,5 +1,9 @@
 import { images } from "../assets/images";
 import colorFoils from "../assets/services/color-foils.jpg";
+import beardDetail from "../assets/gallery/photo-c1vj.jpg";
+import comboBarber from "../assets/gallery/reel-daxh.jpg";
+import shortFade from "../assets/gallery/reel-dspm.jpg";
+import razorShave from "../assets/gallery/reel-dnro.jpg";
 import colorMen from "../assets/services/color-men.jpg";
 import colorApplication from "../assets/services/color-application.jpg";
 import colorHighlights from "../assets/services/color-highlights.jpg";
@@ -25,7 +29,6 @@ import pedicurePolish from "../assets/services/pedicure-polish.jpg";
 import waxTreatment from "../assets/services/wax-treatment.jpg";
 import waxLegs from "../assets/services/wax-legs.jpg";
 import waxPaste from "../assets/services/wax-paste.jpg";
-import waxBeads from "../assets/services/wax-beads.jpg";
 import facialCare from "../assets/services/facial-care.jpg";
 import facialMassage from "../assets/services/facial-massage.jpg";
 import facialRelax from "../assets/services/facial-relax.jpg";
@@ -35,16 +38,16 @@ import massageBack from "../assets/services/massage-back.jpg";
 // Catalog photography is scoped to Services; shared booking/home imagery stays intact.
 export const serviceCatalogPhotos: Readonly<Record<string, string>> = {
   "corte": images.corte,
-  "corte-y-barba": images.corteBarba,
+  "corte-y-barba": comboBarber,
   "barba": images.barba,
-  "barba-con-marcacion": images.barba,
-  "shampoo": washMen,
+  "barba-con-marcacion": razorShave,
+  "shampoo": wash,
   "corte-barba-y-cejas": images.corteBarba,
-  "corte-y-cejas": images.corte,
+  "corte-y-cejas": shortFade,
   "barba-y-cejas": images.barba,
   "cejas-con-cuchilla": images.cejas,
-  "manicure-y-pedicure-hombre": pedicureCare,
-  "depilacion-nariz-y-orejas": waxBeads,
+  "manicure-y-pedicure-hombre": images.manicure,
+  "depilacion-nariz-y-orejas": beardDetail,
   "keratina-caballeros": washMen,
   "shampoo-normal": wash,
   "tinte-de-barba": images.barba,
@@ -54,26 +57,26 @@ export const serviceCatalogPhotos: Readonly<Record<string, string>> = {
   "color-base-o-raiz-damas": colorApplication,
   "color-base-y-raiz-damas": colorFoils,
   "depilacion-espalda": waxPaste,
-  "depilacion-pecho": waxBeads,
+  "depilacion-pecho": waxPaste,
   "barrido-color": colorHighlights,
-  "depilacion-axilas": waxTreatment,
+  "depilacion-axilas": waxPaste,
   "aplicacion-tintura": colorApplication,
   "cambio-esmalte-pies": pedicurePolish,
   "depilacion-cejas": images.cejas,
-  "depilacion-brazos": waxTreatment,
-  "depilacion-nariz": waxBeads,
+  "depilacion-brazos": waxPaste,
+  "depilacion-nariz": beardDetail,
   "limpieza-facial-completa": facialCare,
   "trenzas": braids,
-  "peinados-infantiles": childrenBraids,
-  "peinados-ninas-con-accesorios": childrenStyling,
+  "peinados-infantiles": childrenStyling,
+  "peinados-ninas-con-accesorios": childrenBraids,
   "maquillaje-halloween": makeupEditorial,
   "pestanas-pelo-a-pelo": lashesExtensions,
   "maquillaje-profesional": makeup,
-  "depilacion-orejas-con-depilador": waxPaste,
-  "ondulacion-de-cabello": styling,
+  "depilacion-orejas-con-depilador": beardDetail,
+  "ondulacion-de-cabello": blowdry,
   "cepillado": blowdry,
   "masaje-de-manos": images.manicure,
-  "keratina-damas": styling,
+  "keratina-damas": washCare,
   "pigmento-cejas": images.cejas,
   "cirugia-capilar": washCare,
   "lifting-pestanas": lashesDetail,
@@ -83,13 +86,13 @@ export const serviceCatalogPhotos: Readonly<Record<string, string>> = {
   "limpieza-facial-basica": facialRelax,
   "depilacion-media-pierna": waxLegs,
   "despunte-de-cabello": hairTrim,
-  "aplicacion-keratina": styling,
+  "aplicacion-keratina": washCare,
   "masaje-capilar": washCare,
   "depilacion-pies": waxPaste,
   "hidratacion-capilar": wash,
-  "depilacion-bikini": waxBeads,
+  "depilacion-bikini": waxTreatment,
   "spa-capilar-botanico": washCare,
-  "depilacion-orejas": waxPaste,
+  "depilacion-orejas": razorShave,
   "spa-pies": images.pedicure,
   "mascarilla-loreal": washCare,
   "shampoo-y-mascarilla-loreal": wash,
@@ -106,11 +109,11 @@ export const serviceCatalogPhotos: Readonly<Record<string, string>> = {
   "manicure-polish": manicurePolish,
   "decoracion-unas": nailsArt,
   "manicure-con-parafina": images.manicure,
-  "manicure-semipermanente": manicurePolish,
+  "manicure-semipermanente": nailsColor,
   "manicure-y-pedicure-mujer": pedicurePolish,
-  "pedicure-hombre": pedicureCare,
-  "pedicure-mujer": images.pedicure,
-  "depilacion-con-maquina": waxBeads,
+  "pedicure-hombre": images.pedicure,
+  "pedicure-mujer": pedicureCare,
+  "depilacion-con-maquina": waxTreatment,
   "pedicure-semipermanente": pedicurePolish,
   "retiro-de-semipermanente": manicurePolish,
   "unas-acrilicas": nailsArt,

@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import { Footer } from "../Footer/Footer";
 import { Header } from "../Header/Header";
+import { StyleAssistant } from "../StyleAssistant/StyleAssistant";
 
 export function Layout() {
   const location = useLocation();
@@ -17,6 +18,7 @@ export function Layout() {
         <Outlet />
       </main>
       <Footer />
+      <StyleAssistant />
     </>
   );
 }

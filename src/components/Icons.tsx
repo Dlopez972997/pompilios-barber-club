@@ -141,6 +141,16 @@ export function IconChat({ size = 18 }: IconProps) {
   );
 }
 
+export function IconScissors({ size = 20 }: IconProps) {
+  return (
+    <svg {...base(size)}>
+      <circle cx="6.25" cy="6.25" r="2.75" stroke="currentColor" strokeWidth="1.55" />
+      <circle cx="6.25" cy="17.75" r="2.75" stroke="currentColor" strokeWidth="1.55" />
+      <path d="m8.3 8.15 11.45 11.3M8.3 15.85 19.75 4.55M12.15 12l3.1 3.05" stroke="currentColor" strokeWidth="1.55" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
 export function IconDiamond({ size = 18 }: IconProps) {
   return (
     <svg {...base(size)}>

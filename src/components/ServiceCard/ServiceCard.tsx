@@ -10,7 +10,7 @@ type Props = {
 
 export function ServiceCard({ service }: Props) {
   return (
-    <article className="service-card">
+    <article id={`service-${service.slug}`} className="service-card">
       <div className="service-media">
         <ServiceVisual name={service.name} image={service.image} alt={service.name} />
       </div>
