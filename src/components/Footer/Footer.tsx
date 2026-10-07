@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { branch, navItems, socials } from "../../data/site";
 import { IconClock, IconInstagram, IconPhone, IconPin, IconWhatsapp } from "../Icons";
@@ -8,6 +9,25 @@ const socialIcon = {
 };
 
 export function Footer() {
+  useEffect(() => {
+    const node = document.querySelector(".footer");
+    if (!node) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      node.classList.add("is-in");
+      return;
+    }
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry?.isIntersecting) return;
+        node.classList.add("is-in");
+        observer.disconnect();
+      },
+      { threshold: 0.2 },
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <footer className="footer">
       <div className="container footer-grid">
