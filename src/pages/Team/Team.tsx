@@ -153,8 +153,8 @@ export function TeamPage() {
           </div>
 
           <div className="team-grid">
-            {visible.map((member) => (
-              <TeamCard key={member.id} member={member} onView={setProfile} />
+            {visible.map((member, index) => (
+              <TeamCard key={member.id} member={member} index={index} onView={setProfile} />
             ))}
           </div>
           {visible.length === 0 ? <p className="empty">No encontramos profesionales con ese nombre.</p> : null}
