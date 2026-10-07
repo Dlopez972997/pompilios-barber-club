@@ -1,7 +1,7 @@
 import { images } from "../assets/images";
 import color from "../assets/gallery/reel-dy-c.jpg";
 import type { Service, ServiceCategory } from "./types";
-import { clearServiceImage } from "./serviceImage";
+import { resolveServiceImage } from "./serviceImage";
 
 const serviceImages = {
   ...images,
@@ -1226,7 +1226,7 @@ export const services: Service[] = [
 ];
 
 for (const service of services) {
-  service.image = clearServiceImage(service.name);
+  service.image = resolveServiceImage(service);
 }
 
 export const featuredServices = services.filter((service) => service.featured);

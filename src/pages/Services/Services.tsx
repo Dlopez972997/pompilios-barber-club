@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { serviceCategories, services } from "../../data/services";
 import { images } from "../../assets/images";
 import { Button } from "../../components/Button/Button";
-import { IconChevron, IconClock, IconDiamond, IconSearch } from "../../components/Icons";
+import { IconClock, IconDiamond, IconSearch } from "../../components/Icons";
 import { PageHero } from "../../components/PageHero/PageHero";
 import { ServiceCard } from "../../components/ServiceCard/ServiceCard";
 
@@ -143,7 +143,6 @@ export function ServicesPage() {
                     <option value="long">Más de 45 min</option>
                   </select>
                 </span>
-                <IconChevron direction="down" />
               </label>
               <label className="filter-select">
                 <IconDiamond size={16} />
@@ -156,7 +155,6 @@ export function ServicesPage() {
                     <option value="high">Más de $50.000</option>
                   </select>
                 </span>
-                <IconChevron direction="down" />
               </label>
               <p className="catalog-count">
                 {visible.length === services.length
