@@ -397,93 +397,171 @@ body:has(.page-services) .menu-toggle {
 
 .services-hero {
   position: relative;
-  background: #1d171b;
+  overflow: hidden;
+  background:
+    radial-gradient(520px 240px at 78% 100%, rgba(139, 23, 53, 0.2), transparent 68%),
+    radial-gradient(380px 200px at 96% 8%, rgba(201, 154, 90, 0.1), transparent 62%),
+    radial-gradient(280px 160px at 22% 0%, rgba(244, 239, 231, 0.035), transparent 70%),
+    #1d171b;
+  box-shadow: inset 0 -1px 0 rgba(201, 154, 90, 0.28);
+}
+
+.services-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 70% 90% at 62% 50%, rgba(244, 239, 231, 0.045), transparent 58%),
+    radial-gradient(ellipse 40% 80% at 0% 80%, rgba(139, 23, 53, 0.16), transparent 70%);
 }
 
 .page-services .page-hero {
+  position: relative;
+  z-index: 1;
   min-height: 0;
   padding: 0;
-  background: #1d171b;
-  overflow: hidden;
+  background: transparent;
+  overflow: visible;
 }
 
 .page-services .page-hero-grid {
   display: grid;
-  grid-template-columns: minmax(300px, 0.4fr) minmax(0, 0.6fr);
-  align-items: stretch;
-  height: 260px;
+  grid-template-columns: minmax(340px, 0.5fr) minmax(0, 0.58fr);
+  align-items: center;
+  height: 340px;
   min-height: 0;
   gap: 0;
 }
 
 .page-services .page-hero-grid > div:first-child {
   justify-content: center;
-  padding: 10px 8px 14px 0;
+  padding: 26px 48px 26px 2px;
 }
 
-.page-services .page-hero h1 {
-  max-width: 8ch;
-  margin: 4px 0 8px;
-  color: #ffffff;
-  font-size: clamp(36px, 3vw, 48px);
-  line-height: 0.92;
-}
-
-.page-services .page-hero h1 span {
-  color: #f4efe7;
-  font-style: italic;
-}
-
-.page-services .page-hero p,
 .page-services .crumbs,
 .page-services .crumbs a {
-  max-width: 42ch;
   margin: 0;
-  color: #e7ddd2;
-  font-size: 14.5px;
-  line-height: 1.4;
+  color: rgba(244, 239, 231, 0.74);
+  font-family: var(--font-sans);
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  line-height: 1.2;
+  text-transform: uppercase;
 }
 
 .page-services .crumbs {
+  margin-bottom: 14px;
+}
+
+.page-services .crumbs [aria-current="page"] {
   color: #c99a5a;
-  font-size: 13px;
-  letter-spacing: 0.04em;
+}
+
+.page-services .page-hero h1 {
+  max-width: 11em;
+  margin: 0 0 14px;
+  color: #f4efe7;
+  font-size: clamp(44px, 3.15vw, 54px);
+  font-weight: 500;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+}
+
+.page-services .page-hero h1 span {
+  display: block;
+  margin-top: 6px;
+  color: #f4efe7;
+  font-size: 0.74em;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1;
+}
+
+.page-services .page-hero p {
+  max-width: 34ch;
+  margin: 0;
+  color: rgba(244, 239, 231, 0.7);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.page-services .page-hero p::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 1px;
+  margin-top: 16px;
+  background: linear-gradient(90deg, #c99a5a 0%, rgba(201, 154, 90, 0.05) 100%);
 }
 
 .page-services .page-hero-media {
   position: relative;
-  height: 260px;
-  margin: 0;
+  height: 340px;
+  width: calc(100% + max(24px, (100vw - 1360px) / 2) + 88px);
+  margin: 0 calc(-1 * max(24px, (100vw - 1360px) / 2)) 0 -88px;
 }
 
 .page-services .page-hero-media img {
   width: 100%;
-  height: 260px;
+  height: 340px;
   min-height: 0;
   object-fit: cover;
-  object-position: 68% center;
+  object-position: 46% 40%;
 }
 
 .page-services .page-hero-media::before {
-  width: 28%;
-  background: linear-gradient(90deg, #1d171b 0%, rgba(29, 23, 27, 0.45) 46%, rgba(29, 23, 27, 0) 100%);
+  width: 46%;
+  background: linear-gradient(
+    90deg,
+    #1d171b 0%,
+    rgba(29, 23, 27, 0.72) 24%,
+    rgba(29, 23, 27, 0.32) 55%,
+    rgba(29, 23, 27, 0) 100%
+  );
+}
+
+.page-services .page-hero-media::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(29, 23, 27, 0.28) 0%, transparent 20%, transparent 76%, rgba(29, 23, 27, 0.38) 100%),
+    linear-gradient(270deg, rgba(29, 23, 27, 0.42) 0%, transparent 24%);
 }
 
 .services-hero-mark {
   position: absolute;
   z-index: 3;
   top: 50%;
-  right: max(18px, calc((100vw - 1360px) / 2 + 18px));
+  right: max(26px, calc((100vw - 1360px) / 2 + 8px));
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 18px;
   margin: 0;
+  padding-left: 14px;
   transform: translateY(-50%);
-  color: #c99a5a;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
+  color: rgba(201, 154, 90, 0.84);
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
+}
+
+.services-hero-mark::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  bottom: 2px;
+  left: 0;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, rgba(201, 154, 90, 0.75) 18%, rgba(201, 154, 90, 0.75) 82%, transparent);
 }
 
 .services-hero-mark span {
@@ -1928,10 +2006,35 @@ body:has(.page-team) .footer {
     position: static;
   }
 
-  .page-services .page-hero-media,
+  .page-services .page-hero-grid > div:first-child {
+    padding: 22px 4px 18px;
+  }
+
+  .page-services .page-hero h1 {
+    font-size: 44px;
+  }
+
+  .page-services .page-hero-media {
+    width: calc(100% + 48px);
+    height: 220px;
+    margin-left: -24px;
+    margin-right: -24px;
+  }
+
   .page-services .page-hero-media img {
-    height: 210px;
-    margin-left: 0;
+    width: 100%;
+    height: 220px;
+    margin: 0;
+  }
+
+  .page-services .page-hero-media::before {
+    top: 0;
+    right: 0;
+    bottom: auto;
+    left: 0;
+    width: 100%;
+    height: 72px;
+    background: linear-gradient(180deg, #1d171b 0%, rgba(29, 23, 27, 0.62) 46%, rgba(29, 23, 27, 0) 100%);
   }
 
   .page-services .services-layout {
@@ -2045,8 +2148,29 @@ body:has(.page-team) .footer {
     font-size: 42px;
   }
 
+  .page-services .page-hero {
+    padding: 0;
+  }
+
   .page-services .page-hero h1 {
-    font-size: 46px;
+    font-size: 40px;
+  }
+
+  .page-services .page-hero p {
+    font-size: 14.5px;
+  }
+
+  .page-services .page-hero-media {
+    width: calc(100% + 48px);
+    height: 188px;
+    margin-left: -24px;
+    margin-right: -24px;
+  }
+
+  .page-services .page-hero-media img {
+    width: 100%;
+    height: 188px;
+    margin: 0;
   }
 
   .page-services .reserve-card {
