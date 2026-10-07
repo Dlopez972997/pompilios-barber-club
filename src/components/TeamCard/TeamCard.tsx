@@ -33,7 +33,7 @@ export function TeamCard({ member, index = 0, onView }: Props) {
     <article
       ref={cardRef}
       className={`team-card${shown ? " is-in" : ""}`}
-      style={{ animationDelay: `${(index % 4) * 60}ms` }}
+      style={{ animationDelay: `${(index % 4) * 80}ms` }}
     >
       <div className="team-card-media">
         <img src={member.image} alt={member.name} />

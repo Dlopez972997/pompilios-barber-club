@@ -46,7 +46,7 @@ export function TeamPage() {
     <div className="page page-team">
       <section className="team-hero">
         <div className="container team-hero-grid">
-          <div>
+          <div className="team-hero-copy">
             <nav className="crumbs" aria-label="Ruta de navegación">
               <Link to="/">Inicio</Link>
               <span aria-hidden="true"> / </span>
@@ -90,30 +90,29 @@ export function TeamPage() {
             </div>
           </div>
 
-          <article className="featured">
-            <div className="featured-photo">
-              <img src={featuredMember.image} alt={featuredMember.name} />
-            </div>
-            <div>
-              <p className="eyebrow">{featuredMember.role}</p>
-              <h2>{featuredMember.name}</h2>
-              <Rating value={featuredMember.rating} count={featuredMember.reviews} />
-              {featuredMember.bio ? <p>{featuredMember.bio}</p> : null}
-              {featuredMember.specialties && featuredMember.specialties.length > 0 ? (
-                <>
-                  <p className="featured-label">Especialidades:</p>
-                  <ul className="chips">
-                    {featuredMember.specialties.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                </>
-              ) : null}
-              <Button to={`/reservas?professional=${featuredMember.id}`} arrow>
-                Reservar con {featuredMember.firstName}
-              </Button>
-            </div>
-          </article>
+          <div className="featured-photo">
+            <img src={featuredMember.image} alt={featuredMember.name} />
+          </div>
+
+          <div className="featured-copy">
+            <p className="eyebrow">{featuredMember.role}</p>
+            <h2>{featuredMember.name}</h2>
+            <Rating value={featuredMember.rating} count={featuredMember.reviews} />
+            {featuredMember.bio ? <p>{featuredMember.bio}</p> : null}
+            {featuredMember.specialties && featuredMember.specialties.length > 0 ? (
+              <>
+                <p className="featured-label">Especialidades:</p>
+                <ul className="chips">
+                  {featuredMember.specialties.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </>
+            ) : null}
+            <Button to={`/reservas?professional=${featuredMember.id}`} arrow>
+              Reservar con {featuredMember.firstName}
+            </Button>
+          </div>
         </div>
       </section>
 
