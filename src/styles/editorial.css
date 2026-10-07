@@ -4074,3 +4074,62 @@ body:has(.page-booking) .mobile-link.is-active {
     transition: none;
   }
 }
+
+/* Keep the home hero photograph crisp and render the brand mark separately. */
+.page-home .home-hero-media {
+  position: relative;
+  overflow: hidden;
+}
+
+.page-home .home-hero-media > img:first-child {
+  object-position: right center;
+  filter: none;
+  transform: none;
+  image-rendering: auto;
+}
+
+.page-home .home-hero-media::before {
+  width: 58%;
+  background: linear-gradient(90deg,
+    #f4efe7 0%,
+    rgba(244, 239, 231, 0.92) 18%,
+    rgba(244, 239, 231, 0.68) 42%,
+    rgba(244, 239, 231, 0.28) 70%,
+    transparent 100%);
+}
+
+.page-home .home-hero-media > img.home-hero-brand {
+  position: absolute;
+  z-index: 2;
+  inset: 10% clamp(20px, 4vw, 58px) auto auto;
+  width: clamp(112px, 11vw, 158px);
+  max-width: 23%;
+  height: auto;
+  min-height: 0;
+  object-fit: contain;
+  filter: drop-shadow(0 5px 18px rgba(10, 7, 9, 0.24));
+  opacity: 0.96;
+  pointer-events: none;
+}
+
+@media (max-width: 1040px) {
+  .page-home .home-hero-media > img:first-child {
+    object-position: center center;
+  }
+
+  .page-home .home-hero-media::before {
+    background: linear-gradient(180deg,
+      #f4efe7 0%,
+      rgba(244, 239, 231, 0.76) 7%,
+      rgba(244, 239, 231, 0.24) 18%,
+      transparent 32%);
+  }
+}
+
+@media (max-width: 480px) {
+  .page-home .home-hero-media > img.home-hero-brand {
+    inset: 12% 16px auto auto;
+    width: 104px;
+    max-width: 28%;
+  }
+}

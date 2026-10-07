@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { featuredServices } from "../../data/services";
 import { reviews } from "../../data/reviews";
 import { branch, reviewStats } from "../../data/site";
-import heroPhoto from "../../assets/home/pompilios-atelier-hero.jpg";
+import heroPhoto from "../../assets/home/pompilios-atelier-hero-v2.webp";
+import brandLogo from "../../assets/brand/pompilios-hair-atelier.png";
 import { Button } from "../../components/Button/Button";
 import { IconChat, IconCheck, IconClock, IconStar, IconTrophy } from "../../components/Icons";
 import { Rating } from "../../components/Rating/Rating";
@@ -53,7 +54,8 @@ export function HomePage() {
             </div>
           </div>
           <div className="home-hero-media">
-            <img src={heroPhoto} alt="Barbero atendiendo a un cliente en Pompilio's Hair Atelier" />
+            <img src={heroPhoto} alt="Barbero atendiendo a un cliente en Pompilio's Hair Atelier" fetchPriority="high" decoding="async" />
+            <img className="home-hero-brand" src={brandLogo} alt="" aria-hidden="true" />
           </div>
         </div>
       </section>
