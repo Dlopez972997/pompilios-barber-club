@@ -1,26 +1,24 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { featuredServices } from "../../data/services";
 import { reviews } from "../../data/reviews";
 import { branch, reviewStats } from "../../data/site";
 import heroPhoto from "../../assets/home/pompilios-atelier-hero.jpg";
 import { Button } from "../../components/Button/Button";
-import { IconCalendar, IconChat, IconCheck, IconChevron, IconClock, IconStar, IconTrophy } from "../../components/Icons";
+import { IconChat, IconCheck, IconClock, IconStar, IconTrophy } from "../../components/Icons";
 import { Rating } from "../../components/Rating/Rating";
 import { ServiceCard } from "../../components/ServiceCard/ServiceCard";
 
 const steps = [
   {
-    icon: IconCalendar,
     title: "Elige servicio",
     text: "Selecciona el servicio que deseas.",
   },
   {
-    icon: IconClock,
     title: "Selecciona fecha y hora",
     text: "Elige el día y horario que más te convenga.",
   },
   {
-    icon: IconCheck,
     title: "Confirma tu cita",
     text: "Completa tu reserva y listo.",
   },
@@ -101,12 +99,20 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section home-featured">
         <div className="container">
-          <div className="section-head">
-            <h2>Servicios destacados</h2>
-            <p>Servicios de barbería con la calidad y el estilo que nos distingue.</p>
-            <span className="accent-line" />
+          <div className="home-featured-head">
+            <div className="section-head">
+              <h2>
+                Servicios destacados
+                <span className="accent-line" />
+              </h2>
+              <p>Servicios de barbería con la calidad y el estilo que nos distingue.</p>
+            </div>
+            <Link to="/servicios" className="home-featured-more">
+              Ver todos los servicios
+              <span aria-hidden="true">→</span>
+            </Link>
           </div>
           <div className="card-grid card-grid-3">
             {featuredServices.map((service) => (
@@ -125,20 +131,11 @@ export function HomePage() {
           <ol className="how-steps">
             {steps.map((step, index) => (
               <li key={step.title}>
-                <span className="how-icon">
-                  <step.icon size={18} />
-                </span>
+                <span className="how-icon">{index + 1}</span>
                 <span>
-                  <strong>
-                    {index + 1}. {step.title}
-                  </strong>
+                  <strong>{step.title}</strong>
                   <small>{step.text}</small>
                 </span>
-                {index < steps.length - 1 ? (
-                  <span className="how-sep" aria-hidden="true">
-                    <IconChevron />
-                  </span>
-                ) : null}
               </li>
             ))}
           </ol>
