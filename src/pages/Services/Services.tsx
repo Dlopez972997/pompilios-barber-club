@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { serviceCategories, services } from "../../data/services";
 import { images } from "../../assets/images";
 import { Button } from "../../components/Button/Button";
-import { IconCalendar, IconChevron, IconClock, IconDiamond, IconSearch } from "../../components/Icons";
+import { IconChevron, IconClock, IconDiamond, IconSearch } from "../../components/Icons";
 import { PageHero } from "../../components/PageHero/PageHero";
 import { ServiceCard } from "../../components/ServiceCard/ServiceCard";
 
@@ -62,21 +62,28 @@ export function ServicesPage() {
 
   return (
     <div className="page page-services">
-      <PageHero
-        crumbs={[
-          { label: "Inicio", to: "/" },
-          { label: "Servicios" },
-        ]}
-        title={
-          <>
-            Servicios
-            <span> con criterio.</span>
-          </>
-        }
-        text="Servicios de barbería con la calidad, tradición y atención al detalle que nos distingue. Elige tu servicio y vive la experiencia Pompilio's."
-        image={images.corte}
-        imageAlt="Corte de cabello en proceso en Pompilio's"
-      />
+      <div className="services-hero">
+        <PageHero
+          crumbs={[
+            { label: "Inicio", to: "/" },
+            { label: "Servicios" },
+          ]}
+          title={
+            <>
+              Servicios
+              <span> con criterio.</span>
+            </>
+          }
+          text="Servicios de barbería con la calidad, tradición y atención al detalle que nos distingue. Elige tu servicio y vive la experiencia Pompilio's."
+          image={images.corte}
+          imageAlt="Corte de cabello en proceso en Pompilio's"
+        />
+        <p className="services-hero-mark" aria-hidden="true">
+          <span>Estilo</span>
+          <span>Técnica</span>
+          <span>Detalle</span>
+        </p>
+      </div>
 
       <section className="section services-section">
         <div className="container">
@@ -105,39 +112,40 @@ export function ServicesPage() {
                 </button>
               ))}
             </div>
-            <label className="filter-select">
-              <IconClock size={16} />
-              <span>
-                <span>Duración</span>
-                <select value={duration} aria-label="Filtrar por duración" onChange={(event) => setDuration(event.target.value)}>
-                  <option value="all">Todos</option>
-                  <option value="short">Hasta 30 min</option>
-                  <option value="medium">30 a 45 min</option>
-                  <option value="long">Más de 45 min</option>
-                </select>
-              </span>
-              <IconChevron direction="down" />
-            </label>
-            <label className="filter-select">
-              <IconDiamond size={16} />
-              <span>
-                <span>Precio</span>
-                <select value={price} aria-label="Filtrar por precio" onChange={(event) => setPrice(event.target.value)}>
-                  <option value="all">Todos</option>
-                  <option value="low">Hasta $40.000</option>
-                  <option value="mid">$40.000 a $50.000</option>
-                  <option value="high">Más de $50.000</option>
-                </select>
-              </span>
-              <IconChevron direction="down" />
-            </label>
+            <div className="services-filters">
+              <label className="filter-select">
+                <IconClock size={16} />
+                <span>
+                  <span>Duración</span>
+                  <select value={duration} aria-label="Filtrar por duración" onChange={(event) => setDuration(event.target.value)}>
+                    <option value="all">Todos</option>
+                    <option value="short">Hasta 30 min</option>
+                    <option value="medium">30 a 45 min</option>
+                    <option value="long">Más de 45 min</option>
+                  </select>
+                </span>
+                <IconChevron direction="down" />
+              </label>
+              <label className="filter-select">
+                <IconDiamond size={16} />
+                <span>
+                  <span>Precio</span>
+                  <select value={price} aria-label="Filtrar por precio" onChange={(event) => setPrice(event.target.value)}>
+                    <option value="all">Todos</option>
+                    <option value="low">Hasta $40.000</option>
+                    <option value="mid">$40.000 a $50.000</option>
+                    <option value="high">Más de $50.000</option>
+                  </select>
+                </span>
+                <IconChevron direction="down" />
+              </label>
+              <p className="catalog-count">
+                {visible.length === services.length
+                  ? `${services.length} servicios`
+                  : `${visible.length} de ${services.length} servicios`}
+              </p>
+            </div>
           </div>
-
-          <p className="catalog-count">
-            {visible.length === services.length
-              ? `${services.length} servicios`
-              : `${visible.length} de ${services.length} servicios`}
-          </p>
 
           <div className="services-layout">
             <div>
@@ -189,9 +197,6 @@ export function ServicesPage() {
               ) : null}
             </div>
             <aside className="reserve-card">
-              <span className="reserve-badge">
-                <IconCalendar />
-              </span>
               <h2>Reserva en 3 simples pasos</h2>
               <p>Tu próxima experiencia en Pompilio's está a solo unos clics.</p>
               <ol>
@@ -211,17 +216,46 @@ export function ServicesPage() {
             </aside>
           </div>
 
-          <section className="experience-banner">
-            <img src={images.towels} alt="Toallas de Pompilio's Hair Atelier" />
-            <div>
-              <p>Tradición · Estilo · Bienestar</p>
-              <h2>
-                Más que una barbería,
-                <span> una experiencia impecable.</span>
-              </h2>
-            </div>
-          </section>
         </div>
+        <section className="services-perks" aria-label="Beneficios">
+          <ul className="container services-perks-row">
+            <li>
+              <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+                <path
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.4"
+                  d="M8 4.5 5 8l3 2 2-2 6 6 2-2-6-6 2-2-3.5-3.5L8 4.5Zm8 8-6 6 1.5 1.5 6-6L16 12.5Z"
+                />
+              </svg>
+              <div>
+                <strong>Técnica profesional</strong>
+                <span>Resultados con criterio.</span>
+              </div>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+                <path
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.4"
+                  d="M6 11V7.5A2.5 2.5 0 0 1 8.5 5h7A2.5 2.5 0 0 1 18 7.5V11M4 11h16v3.5a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V11Zm3 6.5V20m10-2.5V20"
+                />
+              </svg>
+              <div>
+                <strong>Ambiente de primera</strong>
+                <span>Un espacio pensado para ti.</span>
+              </div>
+            </li>
+            <li>
+              <IconDiamond size={28} />
+              <div>
+                <strong>Cuidado en cada detalle</strong>
+                <span>Más que un servicio, una experiencia.</span>
+              </div>
+            </li>
+          </ul>
+        </section>
       </section>
     </div>
   );
