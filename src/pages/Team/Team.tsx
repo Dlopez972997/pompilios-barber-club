@@ -1,12 +1,12 @@
 import { useEffect, useMemo, useState } from "react";
-import { Link } from "react-router-dom";
-import { featuredMember, team } from "../../data/team";
+import { team } from "../../data/team";
 import type { TeamMember } from "../../data/types";
 import { Button } from "../../components/Button/Button";
-import { IconDiamond, IconHeart, IconSearch, IconStar, IconTrophy, IconUsers } from "../../components/Icons";
+import { IconDiamond, IconHeart, IconSearch, IconStar } from "../../components/Icons";
 import { Modal } from "../../components/Modal/Modal";
 import { Rating } from "../../components/Rating/Rating";
 import { TeamCard } from "../../components/TeamCard/TeamCard";
+import { TeamHero } from "../../components/TeamHero/TeamHero";
 
 const filters = (
   [
@@ -44,77 +44,7 @@ export function TeamPage() {
 
   return (
     <div className="page page-team">
-      <section className="team-hero">
-        <div className="container team-hero-grid">
-          <div className="team-hero-copy">
-            <nav className="crumbs" aria-label="Ruta de navegación">
-              <Link to="/">Inicio</Link>
-              <span aria-hidden="true"> / </span>
-              <span aria-current="page">Nuestro equipo</span>
-            </nav>
-            <h1>
-              Talento <span>con criterio.</span>
-            </h1>
-            <p>
-              Talento, experiencia y pasión por el detalle. Conoce a los especialistas que hacen única la experiencia en
-              Pompilio's Hair Atelier.
-            </p>
-            <div className="team-metrics">
-              <article>
-                <span className="metric-icon">
-                  <IconUsers />
-                </span>
-                <div>
-                  <strong>{team.length}</strong>
-                  <span>Especialistas</span>
-                </div>
-              </article>
-              <article>
-                <span className="metric-icon">
-                  <IconStar />
-                </span>
-                <div>
-                  <strong>4.9/5</strong>
-                  <span>Calificación promedio</span>
-                </div>
-              </article>
-              <article>
-                <span className="metric-icon">
-                  <IconTrophy />
-                </span>
-                <div>
-                  <strong>336</strong>
-                  <span>Reseñas</span>
-                </div>
-              </article>
-            </div>
-          </div>
-
-          <div className="featured-photo">
-            <img src={featuredMember.image} alt={featuredMember.name} />
-          </div>
-
-          <div className="featured-copy">
-            <p className="eyebrow">{featuredMember.role}</p>
-            <h2>{featuredMember.name}</h2>
-            <Rating value={featuredMember.rating} count={featuredMember.reviews} />
-            {featuredMember.bio ? <p>{featuredMember.bio}</p> : null}
-            {featuredMember.specialties && featuredMember.specialties.length > 0 ? (
-              <>
-                <p className="featured-label">Especialidades:</p>
-                <ul className="chips">
-                  {featuredMember.specialties.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </>
-            ) : null}
-            <Button to={`/reservas?professional=${featuredMember.id}`} arrow>
-              Reservar con {featuredMember.firstName}
-            </Button>
-          </div>
-        </div>
-      </section>
+      <TeamHero />
 
       <section className="section">
         <div className="container">

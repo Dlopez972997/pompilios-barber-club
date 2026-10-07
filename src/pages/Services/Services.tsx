@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { serviceCategories, services } from "../../data/services";
 import { images } from "../../assets/images";
+import { serviceCatalogPhotos } from "../../data/serviceCatalogPhotos";
 import { Button } from "../../components/Button/Button";
 import { IconClock, IconDiamond, IconSearch } from "../../components/Icons";
 import { PageHero } from "../../components/PageHero/PageHero";
@@ -168,7 +169,7 @@ export function ServicesPage() {
             <div>
               <div className="card-grid card-grid-3">
                 {pageItems.map((service) => (
-                  <ServiceCard key={service.id} service={service} />
+                  <ServiceCard key={service.id} service={{ ...service, image: serviceCatalogPhotos[service.id] ?? service.image }} />
                 ))}
                 {visible.length === 0 ? (
                   <div className="empty">

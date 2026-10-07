@@ -1,4 +1,4 @@
-﻿body:has(.page-home) .header-inner {
+body:has(.page-home) .header-inner {
   min-height: 64px;
   padding-block: 2px;
 }
@@ -2705,4 +2705,177 @@ body:has(.page-team) .footer {
   .page-gallery .gallery-grid {
     columns: 1;
   }
+}
+
+/* Services photography: soft editorial blend and one original brand mark. */
+.page-services .page-hero-media {
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.page-services .page-hero-media img {
+  filter: brightness(0.86) saturate(0.86);
+  object-position: 42% 42%;
+}
+
+.page-services .page-hero-media::before {
+  z-index: 2;
+  width: 72%;
+  background: linear-gradient(90deg, #1d171b 0%, rgba(29, 23, 27, 0.97) 10%, rgba(29, 23, 27, 0.78) 28%, rgba(29, 23, 27, 0.42) 52%, rgba(29, 23, 27, 0.12) 76%, transparent 100%);
+}
+
+.page-services .page-hero-media::after {
+  z-index: 3;
+  background:
+    url("../assets/brand/pompilios-hair-atelier.png") 91% 24% / clamp(132px, 13vw, 184px) auto no-repeat,
+    linear-gradient(180deg, rgba(29, 23, 27, 0.32), transparent 30%, transparent 62%, rgba(29, 23, 27, 0.65)),
+    linear-gradient(270deg, rgba(29, 23, 27, 0.58), rgba(29, 23, 27, 0.22) 32%, transparent 68%);
+}
+
+.page-services .service-media img {
+  filter: saturate(0.92);
+}
+
+@media (max-width: 1040px) {
+  .page-services .page-hero-media::before {
+    width: 100%;
+    height: 110px;
+    background: linear-gradient(180deg, #1d171b, rgba(29, 23, 27, 0.72) 32%, rgba(29, 23, 27, 0.24) 68%, transparent);
+  }
+
+  .page-services .page-hero-media::after {
+    background-size: clamp(132px, 19vw, 172px) auto, auto, auto;
+    background-position: 91% 18%, center, center;
+  }
+}
+
+@media (max-width: 520px) {
+  .page-services .page-hero-media::after {
+    background-size: 112px auto, auto, auto;
+    background-position: 92% 16%, center, center;
+  }
+}
+/* Team hero carousel; all styling stays within the principal section. */
+.page-team .team-hero-slider { padding: 30px 0 24px; }
+.page-team .team-hero-slider .team-hero-grid { row-gap: 18px; }
+.page-team .team-hero-slider .team-hero-copy > p,
+.page-team .team-hero-slider .team-metrics span,
+.page-team .team-hero-slider .featured-copy p,
+.page-team .team-hero-slider .featured-copy .eyebrow,
+.page-team .team-hero-slider .featured-copy .chips li { color: #f4efe7; }
+.page-team .team-hero-slider .team-metrics .metric-icon { color: #c99a5a; }
+.page-team .team-hero-slider .featured-photo {
+  height: 400px;
+  background: radial-gradient(ellipse at 50% 40%, rgba(201,154,90,.14), transparent 75%), #261e24;
+  border-color: rgba(201,154,90,.42);
+  border-radius: 16px;
+  animation: team-portrait-in 650ms ease both;
+}
+.page-team .team-hero-slider .featured-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 0;
+  transform: none;
+}
+.page-team .team-hero-slider .featured-copy {
+  min-height: 230px;
+  animation: team-copy-in 650ms ease both;
+}
+.page-team .team-hero-slider .featured-copy h2 { font-size: clamp(32px, 3vw, 46px); line-height: 1.08; text-wrap: balance; }
+.page-team .team-hero-slider .featured-copy .eyebrow { line-height: 1.7; letter-spacing: .16em; }
+.page-team .team-hero-slider .featured-copy .rating-copy { display: inline-flex; color: #f4efe7; }
+.page-team .team-hero-slider .featured-copy .rating-copy strong { color: #f4efe7; }
+.page-team .team-hero-slider .featured-copy .btn { max-width: 100%; }
+.page-team .team-hero-slider .team-slider-controls { grid-column: 2 / -1; display: grid; justify-items: center; gap: 8px; color: #f4efe7; }
+.page-team .team-hero-slider .team-slider-navigation { display: flex; align-items: center; gap: 12px; }
+.page-team .team-hero-slider .team-slider-arrow,
+.page-team .team-hero-slider .team-slider-toggle {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 44px; min-height: 44px; border: 1px solid rgba(201,154,90,.45);
+  border-radius: 50%; background: rgba(244,239,231,.04); color: #f4efe7; cursor: pointer;
+  transition: background 180ms ease, border-color 180ms ease;
+}
+.page-team .team-hero-slider .team-slider-toggle { border-radius: 24px; padding: 0 16px; font-size: 12px; }
+.page-team .team-hero-slider .team-slider-arrow:hover,
+.page-team .team-hero-slider .team-slider-toggle:hover { background: #8b1735; border-color: #8b1735; }
+.page-team .team-hero-slider .team-slider-count { font-size: 13px; letter-spacing: .12em; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.page-team .team-hero-slider .team-slider-count > span:not(.sr-only) { color: #c99a5a; }
+.page-team .team-hero-slider .team-slider-dots { display: flex; flex-wrap: wrap; justify-content: center; }
+.page-team .team-hero-slider .team-slider-dots button { display: grid; place-items: center; width: 26px; height: 30px; border: 0; padding: 0; background: transparent; cursor: pointer; }
+.page-team .team-hero-slider .team-slider-dots button span { width: 6px; height: 6px; border-radius: 50%; background: rgba(201,154,90,.55); transition: background 180ms ease, transform 180ms ease; }
+.page-team .team-hero-slider .team-slider-dots button[aria-pressed="true"] span { background: #f4efe7; transform: scale(1.45); box-shadow: 0 0 0 4px #8b1735; }
+.page-team .team-hero-slider .team-slider-controls button:focus-visible { outline: 2px solid #c99a5a; outline-offset: 3px; }
+@keyframes team-portrait-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes team-copy-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 1040px) {
+  .page-team .team-hero-slider .team-slider-controls { grid-column: 1 / -1; }
+  .page-team .team-hero-slider .featured-photo { height: 360px; }
+}
+@media (max-width: 720px) {
+  .page-team .team-hero-slider { padding: 24px 0; }
+  .page-team .team-hero-slider .team-hero-grid { gap: 20px; }
+  .page-team .team-hero-slider .featured-photo { height: 320px; width: 100%; max-width: 400px; justify-self: center; }
+  .page-team .team-hero-slider .featured-copy { min-height: 0; padding: 0; }
+  .page-team .team-hero-slider .featured-copy h2 { font-size: 36px; }
+  .page-team .team-hero-slider .featured-copy .btn { align-self: stretch; justify-content: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .page-team .team-hero-slider .featured-photo,
+  .page-team .team-hero-slider .featured-copy { animation: none; }
+  .page-team .team-hero-slider .team-slider-controls button,
+  .page-team .team-hero-slider .team-slider-controls button span { transition: none; }
+}
+/* Services hero: soften the photo edges and keep the brand mark restrained. */
+.page-services .services-hero {
+  background:
+    radial-gradient(700px 420px at 84% 52%, rgba(92, 46, 52, 0.27), transparent 72%),
+    radial-gradient(680px 420px at 58% 100%, rgba(139, 23, 53, 0.13), transparent 72%),
+    linear-gradient(112deg, #1d171b 0%, #21191e 58%, #1d171b 100%);
+}
+
+.page-services .page-hero-media {
+  isolation: isolate;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.32) 8%, #000 23%, #000 74%, rgba(0, 0, 0, 0.7) 92%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.32) 8%, #000 23%, #000 74%, rgba(0, 0, 0, 0.7) 92%, transparent 100%);
+}
+
+.page-services .page-hero-media img {
+  filter: brightness(0.78) saturate(0.76) sepia(0.08);
+  transform: scale(1.035);
+}
+
+.page-services .page-hero-media::before {
+  width: 82%;
+  background:
+    linear-gradient(90deg, #1d171b 0%, rgba(29, 23, 27, 0.88) 20%, rgba(29, 23, 27, 0.52) 48%, rgba(29, 23, 27, 0.12) 78%, transparent 100%),
+    radial-gradient(ellipse 56% 110% at 5% 50%, rgba(29, 23, 27, 0.65), transparent 100%);
+}
+
+.page-services .page-hero-media::after {
+  background:
+    url("../assets/brand/pompilios-hair-atelier.png") 91% 24% / clamp(132px, 13vw, 184px) auto no-repeat,
+    linear-gradient(180deg, rgba(29, 23, 27, 0.3), transparent 26%, transparent 76%, rgba(29, 23, 27, 0.5)),
+    radial-gradient(ellipse 74% 100% at 84% 52%, transparent 36%, rgba(29, 23, 27, 0.36) 100%);
+}
+
+@media (max-width: 1040px) {
+  .page-services .page-hero-media {
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 20%, #000 78%, transparent 100%);
+    mask-image: linear-gradient(180deg, transparent 0%, #000 20%, #000 78%, transparent 100%);
+  }
+
+  .page-services .page-hero-media::before {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(29, 23, 27, 0.38), transparent 42%, rgba(29, 23, 27, 0.2));
+  }
+}
+
+@media (max-width: 520px) {
+  .page-services .page-hero-media img { transform: scale(1.02); }
 }
