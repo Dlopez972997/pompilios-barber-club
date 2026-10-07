@@ -9,7 +9,7 @@ export function ContactPage() {
   const [sent, setSent] = useState(false);
 
   useEffect(() => {
-    document.title = "Contacto | Pompilio's Barber Club";
+    document.title = "Contacto | Pompilio's Hair Atelier";
   }, []);
 
   function onSubmit(event: FormEvent<HTMLFormElement>) {

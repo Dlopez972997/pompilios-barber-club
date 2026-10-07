@@ -31,7 +31,7 @@ export function ServicesPage() {
   const [page, setPage] = useState(1);
 
   useEffect(() => {
-    document.title = "Servicios | Pompilio's Barber Club";
+    document.title = "Servicios | Pompilio's Hair Atelier";
   }, []);
 
   const visible = useMemo(() => {

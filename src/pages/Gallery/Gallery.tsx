@@ -8,7 +8,7 @@ export function GalleryPage() {
   const item = active != null ? gallery[active] : null;
 
   useEffect(() => {
-    document.title = "Galería | Pompilio's Barber Club";
+    document.title = "Galería | Pompilio's Hair Atelier";
   }, []);
 
   useEffect(() => {

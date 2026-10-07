@@ -1,4 +1,3 @@
-import logo from "./images/logo-mark.png";
 import hero from "./images/hero-barber.jpg";
 import corte from "./images/service-corte.jpg";
 import corteBarba from "./images/service-corte-barba.jpg";
@@ -11,7 +10,6 @@ import javier from "./images/review-javier.jpg";
 import towels from "./images/banner-towels.jpg";
 
 export const images = {
-  logo,
   hero,
   corte,
   corteBarba,

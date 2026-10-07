@@ -51,7 +51,7 @@ export function BookingPage() {
   const [confirmed, setConfirmed] = useState(false);
 
   useEffect(() => {
-    document.title = "Reservas | Pompilio's Barber Club";
+    document.title = "Reservas | Pompilio's Hair Atelier";
   }, []);
 
   useEffect(() => {

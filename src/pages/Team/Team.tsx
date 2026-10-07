@@ -30,7 +30,7 @@ export function TeamPage() {
   const [profile, setProfile] = useState<TeamMember | null>(null);
 
   useEffect(() => {
-    document.title = "Nuestro equipo | Pompilio's Barber Club";
+    document.title = "Nuestro equipo | Pompilio's Hair Atelier";
   }, []);
 
   const visible = useMemo(() => {

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { images } from "../../assets/images";
+import logo from "../../assets/brand/pompilios-hair-atelier.png";
 
 type Props = {
   variant?: "color" | "light";
@@ -7,16 +7,8 @@ type Props = {
 
 export function Logo({ variant = "color" }: Props) {
   return (
-    <Link to="/" className={`logo logo-${variant}`} aria-label="Pompilio's Barber Club, ir al inicio">
-      <img src={images.logo} alt="" />
-      <span className="logo-word">
-        <span className="logo-name">POMPILIO'S</span>
-        <span className="logo-sub">
-          <span className="logo-rule" aria-hidden="true" />
-          <span>BARBER CLUB</span>
-          <span className="logo-rule" aria-hidden="true" />
-        </span>
-      </span>
+    <Link to="/" className={`logo logo-${variant}`} aria-label="Pompilio's Hair Atelier, ir al inicio">
+      <img src={logo} alt="" />
     </Link>
   );
 }
