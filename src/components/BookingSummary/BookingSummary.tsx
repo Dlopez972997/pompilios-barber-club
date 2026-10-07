@@ -10,13 +10,14 @@ type Props = {
   date: Date | null;
   time: string | null;
   onConfirm: () => void;
+  className?: string;
 };
 
-export function BookingSummary({ service, professional, date, time, onConfirm }: Props) {
+export function BookingSummary({ service, professional, date, time, onConfirm, className }: Props) {
   const ready = Boolean(service && professional && date && time);
 
   return (
-    <aside className="summary" aria-label="Resumen de tu cita">
+    <aside className={`summary${className ? ` ${className}` : ""}`} aria-label="Resumen de tu cita">
       <h2>Resumen de tu cita</h2>
       <ul>
         <li>
