@@ -56,19 +56,6 @@ body:has(.page-team) .logo img {
   background: linear-gradient(90deg, #f4efe7 0%, rgba(244, 239, 231, 0.84) 40%, rgba(244, 239, 231, 0) 100%);
 }
 
-.page-home .home-hero-media::after {
-  content: "";
-  position: absolute;
-  z-index: 2;
-  top: 5%;
-  right: 3%;
-  width: clamp(156px, 24%, 210px);
-  aspect-ratio: 468 / 280;
-  background: url("../assets/brand/pompilios-hair-atelier.png") center / contain no-repeat;
-  pointer-events: none;
-  filter: drop-shadow(0 5px 14px rgba(29, 23, 27, 0.26));
-}
-
 .page-home .home-hero-media img {
   filter: saturate(0.9) sepia(0.07);
 }
@@ -2380,12 +2367,6 @@ body:has(.page-team) .footer {
     width: clamp(112px, 13vw, 128px);
   }
 
-  .page-home .home-hero-media::after {
-    top: 6%;
-    right: 4%;
-    width: clamp(128px, 24%, 168px);
-  }
-
   .page-home .home-hero-media::before {
     width: auto;
     height: 42px;
@@ -2539,13 +2520,6 @@ body:has(.page-team) .footer {
 @media (max-width: 720px) {
   body:has(.page-home) .header .logo img {
     width: clamp(98px, 26vw, 112px);
-  }
-
-  .page-home .home-hero-media::after {
-    top: 7%;
-    right: 4.5%;
-    width: clamp(104px, 30vw, 124px);
-    filter: drop-shadow(0 4px 10px rgba(29, 23, 27, 0.22));
   }
 
   .page-home .home-featured-head,
